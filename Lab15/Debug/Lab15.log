@@ -1,0 +1,12 @@
+﻿  model.cpp
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.h(73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(163): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(167): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(169): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(199): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(203): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(205): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(237): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(305): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\keely canniff\documents\uop\fall 2018\comp 153\assignment 7\lab15\model.cpp(316): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+  Lab15.vcxproj -> C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\assignment 7\Debug\Lab15.exe
