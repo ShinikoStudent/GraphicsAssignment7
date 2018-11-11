@@ -26,13 +26,13 @@
 #include <stdlib.h>
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
+#include "SDL_mixer.h"
 using namespace glm;
 using namespace std;
 
 const int WINDOWWIDTH = 1600;
 const int WINDOWHEIGHT = 800;
 const double PI = 3.14159;
-
 
 Viewcontroller::Viewcontroller()
 {
@@ -53,9 +53,12 @@ Viewcontroller::Viewcontroller()
 	up = vec3(0.0, 1.0, 0.0);
 	boarderValue = 38;
 	updateLookAt();  //aim will be calculated from the initial values of eye and MOVEANGLE
+
+	//The music that will be played
+	music = NULL;
 }
 
-//Initializes SDL, GLEW, and OpenGL
+//Initializes SDL, GLEW, OpenGL, and sound mixer
 bool Viewcontroller::init()
 {
 	//First initialize SDL
@@ -80,6 +83,24 @@ bool Viewcontroller::init()
 		cout << "Failed to initialize theWorld." << endl;
 		return false;
 	}
+
+	//Initialize SDL_mixer
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+	{
+		return false;
+	}
+
+	//Load the music
+	music = Mix_LoadMUS("sound/barradeen-sea.wav");
+
+	//If there was a problem loading the music
+	if (music == NULL)
+	{
+		return false;
+	}
+	
+	Mix_PlayMusic(music, -1);
+	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
 
 	return true;  //Everything got initialized
 }

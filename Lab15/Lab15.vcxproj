@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\glm\glm;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\include;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\GDL\glew-2.1.0-win32\glew-2.1.0\include\GL;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\lib\x86;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\GDL\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL2_mixer-devel-2.0.4-VC\SDL2_mixer-2.0.4\include;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLM\glm\glm;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\include;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLEW\glew-2.1.0-win32\glew-2.1.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL2_mixer-devel-2.0.4-VC\SDL2_mixer-2.0.4\lib\x86;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLEW\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -82,7 +82,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalOptions>opengl32.lib glu32.lib glew32s.lib SDL2main.lib SDL2.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>opengl32.lib glu32.lib glew32s.lib SDL2main.lib SDL2.lib SDL2_mixer.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

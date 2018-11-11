@@ -9,6 +9,7 @@
 
 #include <SDL.h>  //Include SDL.h before glm.hpp
 #include "model.h"
+#include "SDL_mixer.h"
 #include <glm.hpp>
 using namespace glm;
 
@@ -35,6 +36,7 @@ class Viewcontroller
 
 		SDL_Window *window;
 		SDL_GLContext ogl4context;
+		Mix_Music *music;
 
 	public:
 		Viewcontroller();
@@ -44,6 +46,8 @@ class Viewcontroller
 		void run();
 		bool handleEvents(SDL_Event *theEvent);
 		void updateLookAt();
+
+
 };
 
 #endif

@@ -256,6 +256,7 @@ bool Model::init()
 	//Now initialize all of our models that use shaders1. Note that I have moved this a little 
 	//later in init() from previous labs so that we can pass "program" to the MultiTexModel object.
 	tree.init("images/tree.bmp");
+	bush.init("images/bush.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
 	p.init("images/star.bmp");
 	wallNorth.init("images/wood.bmp","images/wood.bmp", program);
@@ -374,6 +375,43 @@ void Model::draw()
 	model_matrix = rotate(mat4(1.0), degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the tree
 	updateMatrices();
 	tree.draw();
+
+
+	model_matrix = translate(mat4(1.0), vec3(10.0f, 0.5f, 7.50f)); //Position the left bush
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
+	model_matrix = translate(mat4(1.0), vec3(10.0f, 0.5f, 7.50f)); //Position the left bush
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-30.0f, 0.5f, 7.50f)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
+	model_matrix = translate(mat4(1.0), vec3(-30.0f, 0.5f, 7.50f)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-35.0f, 0.5f, 10.0f)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
+	model_matrix = translate(mat4(1.0), vec3(-35.0f, 0.5f, 10.0f)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-40.0f, 0.5f, 7.50f)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
+	model_matrix = translate(mat4(1.0), vec3(-40.0f, 0.5f, 7.50f)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	bush.draw();
 
 	glUniform1i(numTexLoc, 2); //set this uniform variable for the objects that have two textures
 	model_matrix = translate(mat4(1.0), vec3(-5.0f, 0.5f, 5.0f)); //Position the window
