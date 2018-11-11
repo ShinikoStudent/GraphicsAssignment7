@@ -1,0 +1,31 @@
+﻿  cube.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\cube.cpp(6): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  cubeImport.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\cubeimport.cpp(8): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  LoadShaders.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\loadshaders.cpp(13): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  main.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.h(10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  model.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(8): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  multiTexModel.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\multitexmodel.cpp(7): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  pickUpObject1.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\pickupobject1.cpp(6): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  pickUpObjectHideBedroom1.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\pickupobjecthidebedroom1.cpp(6): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  pointSprite.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\pointsprite.cpp(6): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  quad.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\quad.cpp(6): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  rectangle.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\quad.h(11): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  texmodel.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\texmodel.cpp(6): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  texture.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\texture.cpp(9): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  transparentTexModel.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\transparenttexmodel.cpp(6): fatal error C1083: Cannot open include file: 'glew.h': No such file or directory
+  viewcontroller.cpp
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(22): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Generating Code...
