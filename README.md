@@ -1,6 +1,11 @@
 # GraphicsAssignment7
 Class assignment for Graphics
 
+# Dealing with Directories and Libraries
+Make sure to leave the files/paths for each respective computer user to reach glew/sd/glm folders. It will not interfere with one another, its ok if its a long list. The files for Debug do not have to be reinserted. 
+
+DOUBLE CHECK PATHS, SOME REQUIRE A WHOLE FOLDER OTHERS GO VERY FAR IN DEPTH THROUGH THE FILE IN TERMS OF PATHS.
+
 
 ## Pulling from Github
 When I first pulled I had to set up my VS to work with the code, such as targeting the right files.
