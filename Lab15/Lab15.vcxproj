@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL2_mixer-devel-2.0.4-VC\SDL2_mixer-2.0.4\include;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLM\glm\glm;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\include;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLEW\glew-2.1.0-win32\glew-2.1.0\include\GL;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL2_mixer-devel-2.0.4-VC\SDL2_mixer-2.0.4\lib\x86;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLEW\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\glm\glm;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\GDL\glew-2.1.0-win32\glew-2.1.0\include\GL;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL2_mixer-2.0.4\include;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\include;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL2_mixer-devel-2.0.4-VC\SDL2_mixer-2.0.4\include;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLM\glm\glm;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\include;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLEW\glew-2.1.0-win32\glew-2.1.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\lib\x86;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\GDL\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;C:\Users\Keely Canniff\Documents\uop\fall 2018\comp 153\labs\SDL2_mixer-2.0.4\lib\x86;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL2_mixer-devel-2.0.4-VC\SDL2_mixer-2.0.4\lib\x86;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\GLEW\glew-2.1.0-win32\glew-2.1.0\lib\Release\Win32;C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\SDL\SDL2-devel-2.0.8-VC\SDL2-2.0.8\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -124,6 +124,7 @@
   <ItemGroup>
     <ClInclude Include="cube.h" />
     <ClInclude Include="cubeImport.h" />
+    <ClInclude Include="gameController.h" />
     <ClInclude Include="LightProperties.h" />
     <ClInclude Include="LoadShaders.h" />
     <ClInclude Include="model.h" />
@@ -134,6 +135,7 @@
     <ClInclude Include="quad.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="shaderModel.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="texmodel.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="transparentTexModel.h" />
@@ -142,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="cubeImport.cpp" />
+    <ClCompile Include="gameController.cpp" />
     <ClCompile Include="LoadShaders.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="model.cpp" />
@@ -151,6 +154,7 @@
     <ClCompile Include="pointSprite.cpp" />
     <ClCompile Include="quad.cpp" />
     <ClCompile Include="rectangle.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="texmodel.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="transparentTexModel.cpp" />

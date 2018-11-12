@@ -48,7 +48,7 @@ protected:
 	MultiTexModel bedRoomWallNorthEast2;
 	MultiTexModel bedRoomWallNorthWest1;
 	MultiTexModel bedRoomWallNorthWest2;
-
+	MultiTexModel ceiling;
 
 	PointSprite p;
 	ShaderModel <Quad> ground;
@@ -73,9 +73,12 @@ protected:
 
 	float degreesToRadians(float degrees) { return (degrees * (3.14159 / 180.0)); }
 
+	int totalNumOfItems = 4; 
+	bool items[4]; //index 0 is the first cube i put in the room
 public:
 	Model();
-
+	void setItemIndexToFalse(int num);
+	bool getItemIndex(int num);
 	void setUpLights();
 	void setUpBrickTex();
 	void setUpBrickTexImport();

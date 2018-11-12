@@ -36,10 +36,11 @@ const double PI = 3.14159;
 
 Viewcontroller::Viewcontroller()
 {
+	timer = 0;
 	quit = false;
 	window = 0;
 	ogl4context = 0;
-
+	playSoundEffectOnce = false;
 	view_matrix = mat4(1.0);
 
 	moveForward = 0.0;
@@ -53,7 +54,7 @@ Viewcontroller::Viewcontroller()
 	up = vec3(0.0, 1.0, 0.0);
 	boarderValue = 38;
 	updateLookAt();  //aim will be calculated from the initial values of eye and MOVEANGLE
-
+	audio.setup();
 	//The music that will be played
 	music = NULL;
 }
@@ -89,7 +90,7 @@ bool Viewcontroller::init()
 	{
 		return false;
 	}
-
+/*
 	//Load the music
 	music = Mix_LoadMUS("sound/barradeen-sea.wav");
 
@@ -101,6 +102,8 @@ bool Viewcontroller::init()
 	
 	Mix_PlayMusic(music, -1);
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
+	*/
+	audio.playBGM();
 
 	return true;  //Everything got initialized
 }
@@ -204,11 +207,22 @@ void Viewcontroller::updateLookAt()
 	//cout << "tempEye[0] is " << tempEye[0] << "\n";
 	//cout << "tempEye[2] is " << tempEye[2] << "\n";
 	if ((tempEye[0] < -28.0 && tempEye[0] > -31.0) && (tempEye[2] > 28.0 && tempEye[2] < 31.0)) {
-		cout << "WIN";
+		cout << "timer " << timer << endl;
+		if (!playSoundEffectOnce && timer >= 500 && theWorld.getItemIndex(0)) {
+			audio.stopTickingSoundEffect();
+			gc.ItemCollected(0);
+			audio.playCoinSoundEffect();
+			playSoundEffectOnce = true;
+			theWorld.setItemIndexToFalse(0); //the first cube to disappear
+		}
+		else if (theWorld.getItemIndex(0)) {
+			audio.playTickingSoundEffect();
+		}
+		timer++;
 	}
 	else {
-		//cout << "tempEye[0] is " << tempEye[0] << "\n";
-		//cout << "tempEye[2] is " << tempEye[2] << "\n";
+		playSoundEffectOnce = false;
+		timer = 0;
 	}
 	if ((tempEye[0] < boarderValue && tempEye[0] > -boarderValue) && (tempEye[2] < boarderValue && tempEye[2] > -boarderValue)  )
 	{
@@ -221,10 +235,6 @@ void Viewcontroller::updateLookAt()
 	aim[0] = eye[0] + cos(MOVEANGLE); // CHECK THIS X
 	aim[1] = eye[1] + LOOKANGLE;
 	aim[2] = eye[2] + sin(MOVEANGLE); //CHECK THIS Z
-
-
-
-
 
 	view_matrix = lookAt(eye, aim, up);  //calculate the view orientation matrix
 	theWorld.setViewMatrix(view_matrix);
@@ -263,6 +273,7 @@ void Viewcontroller::run()
 	} while (!quit); //run until "quit" is true (i.e. user presses the <Esc> key
 
 	SDL_GL_DeleteContext(ogl4context);
+	audio.freeSounds();
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }

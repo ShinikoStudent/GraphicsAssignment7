@@ -1,40 +1,40 @@
 ﻿  viewcontroller.cpp
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.h(74): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(173): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(194): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.h(74): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(176): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(197): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(195): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(198): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(200): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(203): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(201): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(204): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(221): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(235): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(222): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(236): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(223): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(237): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(245): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Lab15.vcxproj -> C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\Assignment7\GraphicsAssignment7\Debug\Lab15.exe
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(255): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Lab15.vcxproj -> C:\Users\Keely Canniff\Documents\GitHub\GraphicsAssignment7\Debug\Lab15.exe

@@ -22,6 +22,9 @@ Model::Model()
 	model_matrix = mat4(1.0);
 	view_matrix = mat4(1.0);
 	projection_matrix = mat4(1.0);
+	for (int i = 0; i < totalNumOfItems; i ++) {
+		items[0] = true; //while the pickup items are true, then the item will be drawn
+	}
 }
 
 bool Model::initGLEW()
@@ -269,7 +272,7 @@ bool Model::init()
 	//bedroom walls user can go through
 	bedRoomWallNorthEast1.init("images/wood.bmp", "images/wood.bmp", program);
 	bedRoomWallNorthEast2.init("images/wood.bmp", "images/wood.bmp", program);
-
+	ceiling.init("images/wood.bmp", "images/wood.bmp", program);
 	//Set up the brick object to use its own shaders
 	ShaderInfo shaders2[] = {
 			{ GL_VERTEX_SHADER, "shaders//brick.vert" },
@@ -327,6 +330,7 @@ bool Model::init()
 	};
 	filter.init(shaders5);
 	setUpFilter();
+
 
 	//Set up the uniform buffer objects that hold data that all of the shaders share. In this
 	//application we have two uniform buffer objects: one for the lights and one for the matrices.
@@ -480,7 +484,12 @@ void Model::draw()
 	updateMatrices();
 	//p.draw();
 
-
+	glUniform1i(numTexLoc, 2); //set this uniform variable for the objects that have two textures
+	model_matrix = translate(mat4(1.0), vec3(0.0, 6.0, 0.0)); //position the ground
+	model_matrix = rotate(model_matrix, degreesToRadians(90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
+	model_matrix = scale(model_matrix, vec3(10.0f, 10.0f, 10.0f));
+	updateMatrices();
+	ceiling.draw();
 
 	//Render the objects that use their own shaders
 	glBindTexture(GL_TEXTURE_2D, brickNoiseTexID); //Need to make the noise texture active for the brick
@@ -501,6 +510,8 @@ void Model::draw()
 	model_matrix = scale(model_matrix, vec3(10.0f, 10.0f, 10.0f));
 	updateMatrices();
 	ground.draw();
+
+
 
 	model_matrix = translate(mat4(1.0), vec3(-4.0f, 1.5f, -4.0f));  //position the cube
 	model_matrix = rotate(model_matrix, degreesToRadians(cube_rot_angle), vec3(0.0f, 1.0f, 0.0f));
@@ -528,14 +539,26 @@ void Model::draw()
 	glFlush();
 }
 
+void Model::setItemIndexToFalse(int num) {
+	items[num] = false;
+}
+
+bool Model::getItemIndex(int num) {
+	return items[num];
+}
 
 void Model::drawBedroom1() {
 	// start of bedroom 1 code
 	model_matrix = translate(mat4(1.0), vec3(-30.0f, 1.5f, 30.0f));  //position the cube
 	model_matrix = rotate(model_matrix, degreesToRadians(cube_rot_angle), vec3(0.0f, 1.0f, 0.0f));
 	updateMatrices();
-	pickUp1.draw();
-	int spot = 0;
+	if (items[0]) {
+		pickUp1.draw();
+	}
+	//int spot = 0;
+
+
+
 	//for (int i = 0; i < 20; i++) {
 	model_matrix = translate(mat4(1.0), vec3(-25.0f, 1.5f, 30.0f));  //position the cube
 	model_matrix = rotate(model_matrix, degreesToRadians(cube_rot_angle), vec3(0.0f, 1.0f, 0.0f));

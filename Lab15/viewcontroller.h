@@ -11,6 +11,9 @@
 #include "model.h"
 #include "SDL_mixer.h"
 #include <glm.hpp>
+#include "gameController.h"
+#include "Sound.h"
+
 using namespace glm;
 
 class Viewcontroller
@@ -24,6 +27,7 @@ class Viewcontroller
 		vec3 aim;
 		vec3 up;
 		int boarderValue;
+		int timer; //used to make the player stay under the object
 		mat4 view_matrix;
 		double MOVEANGLE;
 		double LOOKANGLE;
@@ -31,9 +35,10 @@ class Viewcontroller
 		double moveSideways;
 		double baseX;
 		double baseY;
-
+		gameController gc;
+		Sound audio;
 		Model theWorld;  //Model we want to render
-
+		bool playSoundEffectOnce; //used to make sure the audio is only fired once
 		SDL_Window *window;
 		SDL_GLContext ogl4context;
 		Mix_Music *music;
