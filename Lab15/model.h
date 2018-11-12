@@ -39,6 +39,7 @@ protected:
 	//Define the objects we want to render in our scene
 	TransparentTexModel tree;
 	TransparentTexModel bush;
+	TransparentTexModel ceilingLight;
 	MultiTexModel aWindow;
 	MultiTexModel wallNorth;
 	MultiTexModel wallEast;

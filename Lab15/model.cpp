@@ -66,7 +66,7 @@ void Model::setUpLights()
 	//lightInfo.globalAmbientLight = vec3(0.3, 0.3, 0.3);
 	lightInfo.globalAmbientLight = vec3(0.6, 0.6, 0.6);
 
-
+/*
 	lightInfo.lights[0].color = vec4(1.0, 0.0, 0.0, 1.0);
 	lightInfo.lights[0].position = vec4(-4.0, 0.0, -4.0, 1.0);
 	lightInfo.lights[0].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
@@ -91,6 +91,7 @@ void Model::setUpLights()
 	lightInfo.lights[2].quadraticAttenuation = 0.0;
 	lightInfo.lights[2].isEnabled = 1;
 
+	
 	lightInfo.lights[3].color = vec4(1.0, 1.0, 1.0, 1.0);
 	lightInfo.lights[3].position = vec4(3.5, 1.75, -3.5, 1.0);  //positional light since w = 1
 	lightInfo.lights[3].spotLightValues = vec4(1.0, 0.95, 4.0, 0.0);
@@ -101,6 +102,43 @@ void Model::setUpLights()
 	lightInfo.lights[3].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[3].constantAttenuation = 0.5;
 	lightInfo.lights[3].linearAttenuation = 0.0;
+	lightInfo.lights[3].quadraticAttenuation = 0.0;
+	lightInfo.lights[3].isEnabled = 1;
+	*/
+
+	lightInfo.lights[0].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[0].position = vec4(-39, 2, 40, 1.0);  //positional light since w = 1
+	lightInfo.lights[0].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[0].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[0].constantAttenuation = 1.0;
+	lightInfo.lights[0].linearAttenuation = 0.1;
+	lightInfo.lights[0].quadraticAttenuation = 0.0;
+	lightInfo.lights[0].isEnabled = 1;
+
+	lightInfo.lights[1].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[1].position = vec4(-39, 2, -40, 1.0);  //positional light since w = 1
+	lightInfo.lights[1].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[1].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[1].constantAttenuation = 1.0;
+	lightInfo.lights[1].linearAttenuation = 0.1;
+	lightInfo.lights[1].quadraticAttenuation = 0.0;
+	lightInfo.lights[1].isEnabled = 1;
+
+	lightInfo.lights[2].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[2].position = vec4(39, 2, -40, 1.0);  //positional light since w = 1
+	lightInfo.lights[2].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[2].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[2].constantAttenuation = 1.0;
+	lightInfo.lights[2].linearAttenuation = 0.1;
+	lightInfo.lights[2].quadraticAttenuation = 0.0;
+	lightInfo.lights[2].isEnabled = 1;
+
+	lightInfo.lights[3].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[3].position = vec4(39, 2, 1, 1.0);  //positional light since w = 1
+	lightInfo.lights[3].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[3].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[3].constantAttenuation = 1.0;
+	lightInfo.lights[3].linearAttenuation = 0.1;
 	lightInfo.lights[3].quadraticAttenuation = 0.0;
 	lightInfo.lights[3].isEnabled = 1;
 
@@ -260,6 +298,7 @@ bool Model::init()
 	//later in init() from previous labs so that we can pass "program" to the MultiTexModel object.
 	tree.init("images/tree.bmp");
 	bush.init("images/bush.bmp");
+	ceilingLight.init("images/ceilingLight.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
 	p.init("images/star.bmp");
 	wallNorth.init("images/wood.bmp","images/wood.bmp", program);
@@ -416,6 +455,42 @@ void Model::draw()
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
 	updateMatrices();
 	bush.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 2.0f)); //Position the light bulb 1
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
+	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 2.0f)); //Position the light bulb 1
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, -35.0f)); //Position the light bulb 2
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
+	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, -35.0f)); //Position the light bulb 2
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, -35.0f)); //Position the light bulb 3
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
+	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, -35.0f)); //Position the light bulb 3
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, 35.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
+	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, 35.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	updateMatrices();
+	ceilingLight.draw();
 
 	glUniform1i(numTexLoc, 2); //set this uniform variable for the objects that have two textures
 	model_matrix = translate(mat4(1.0), vec3(-5.0f, 0.5f, 5.0f)); //Position the window
