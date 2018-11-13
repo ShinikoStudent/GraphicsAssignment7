@@ -64,6 +64,8 @@ protected:
 	ShaderModel <PickUpObject1> pickUp1;
 	ShaderModel <Cube> cube;
 	ShaderModel <Rectangle> filter;
+	void placeTrees(float x, float z);
+
 	int bedRoomCubeNum = 9;
 
 	GLuint brickNoiseTexID;

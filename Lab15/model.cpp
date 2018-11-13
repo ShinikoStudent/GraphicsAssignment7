@@ -505,7 +505,7 @@ void Model::draw()
 	model_matrix = translate(mat4(1.0), vec3(-5.0f, 0.5f, 5.0f)); //Position the window
 	model_matrix = rotate(model_matrix, degreesToRadians(90.0f), vec3(0.0f, 1.0f, 0.0f));
 	updateMatrices();
-	aWindow.draw();
+	//aWindow.draw();
 
 	glUniform1i(numTexLoc, 2); //set this uniform variable for the objects that have two textures
 	//model_matrix = rotate(model_matrix, degreesToRadians(0.0f), vec3(0.0f, 1.0f, 0.0f));
@@ -671,17 +671,88 @@ void Model::drawPlants() {
 		plantFruit3.draw();
 	}
 	// below are plants
-	model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 15.0f)); //Position the right 3 bushes
+	float spot = 35;
+	model_matrix = translate(mat4(1.0), vec3(spot, -1.0f, 15.0f)); //Position the right 3 bushes
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
 	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
 	updateMatrices();
 	plant.draw();
-	model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 15.0f)); //Position the right 3 bushes
+	model_matrix = translate(mat4(1.0), vec3(spot, -1.0f, 15.0f)); //Position the right 3 bushes
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
 	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
 	updateMatrices();
 	plant.draw();
 
+	spot = 29;
+	float thirdSpot = 19;
+	placeTrees(spot, thirdSpot);
+	spot = 15;
+	thirdSpot = 25;
+	placeTrees(spot, thirdSpot);
+	spot = -5;
+	thirdSpot = -10;
+	placeTrees(spot, thirdSpot);
+	spot = -15;
+	thirdSpot = 20;
+	placeTrees(spot, thirdSpot);
+	spot = -30;
+	thirdSpot = 10;
+	placeTrees(spot, thirdSpot);
+	spot = -30;
+	thirdSpot = -15;
+	placeTrees(spot, thirdSpot);
+	spot = -20;
+	thirdSpot = -18;
+	placeTrees(spot, thirdSpot);
+	spot = -14;
+	thirdSpot = -20;
+	placeTrees(spot, thirdSpot);
+	spot = 2;
+	thirdSpot = -20;
+	placeTrees(spot, thirdSpot);
+	spot = -19;
+	thirdSpot = -2;
+	placeTrees(spot, thirdSpot);
+	spot = -8;
+	thirdSpot = -1;
+	placeTrees(spot, thirdSpot);
+	spot = 8;
+	thirdSpot = 4;
+	placeTrees(spot, thirdSpot);
+	spot = 14;
+	thirdSpot = -4;
+	placeTrees(spot, thirdSpot);
+	spot = 6;
+	thirdSpot = -22;
+	placeTrees(spot, thirdSpot);
+	spot = -20;
+	thirdSpot = 4;
+	placeTrees(spot, thirdSpot);
+	spot = -27;
+	thirdSpot = 25;
+	placeTrees(spot, thirdSpot);
+	spot = -23;
+	thirdSpot = 21;
+	placeTrees(spot, thirdSpot);
+	spot = -31;
+	thirdSpot = 17;
+	placeTrees(spot, thirdSpot);
+	spot = -15;
+	thirdSpot = 34;
+	placeTrees(spot, thirdSpot);
+}
+
+void Model::placeTrees(float x, float z) {
+	model_matrix = translate(mat4(1.0), vec3(x, -1.0f, z)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+	updateMatrices();
+	plant.draw();
+	model_matrix = translate(mat4(1.0), vec3(x, -1.0f, z)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+	updateMatrices();
+	plant.draw();
 }
 
 void Model::drawBedroom1() {
