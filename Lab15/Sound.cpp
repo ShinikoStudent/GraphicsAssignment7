@@ -72,12 +72,21 @@ void Sound::playCoinSoundEffect() {
 	Mix_PlayChannel(0, soundEffect, 0); //was -1, soundEffect, 0
 }
 void Sound::playTickingSoundEffect() {
+	//cout << "Play ticking \n";
 	soundEffect = Mix_LoadWAV("sound/ticking.wav"); 
 	Mix_PlayChannel(1, soundEffect, 0);
 }
 void Sound::stopTickingSoundEffect() {
+	//cout << "stop ticking \n";
 	Mix_PlayChannel(1, soundEffect, 0);
 	Mix_HaltChannel(1);
+}
+
+void Sound::playWinSoundEffect() {
+	//cout << "Play ticking \n";
+	Mix_HaltChannel(1);
+	soundEffect = Mix_LoadWAV("sound/win.wav");
+	Mix_PlayChannel(2, soundEffect, 0);
 }
 
 void Sound::freeSounds() {
@@ -111,12 +120,12 @@ void Sound::playBGM() {
 }
 
 void Sound::pauseBGM() {
-	cout << "pause BGM /n";
+	//cout << "pause BGM /n";
 	Mix_PauseMusic();
 }
 
 void Sound::resumeMusic() {
-	cout << "resume BGM /n";
+	//cout << "resume BGM /n";
 
 	if (Mix_PausedMusic()) {
 		Mix_ResumeMusic();

@@ -78,7 +78,7 @@ protected:
 
 	float degreesToRadians(float degrees) { return (degrees * (3.14159 / 180.0)); }
 
-	int totalNumOfItems = 4; 
+	int totalNumOfItems = 4; // 0 is the block, 1 is plantFruit1, 2 ia plantFruit2, 3 is plantFruit3
 	bool items[4]; //index 0 is the first cube i put in the room
 	void drawPlants();
 public:

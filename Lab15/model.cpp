@@ -23,7 +23,7 @@ Model::Model()
 	view_matrix = mat4(1.0);
 	projection_matrix = mat4(1.0);
 	for (int i = 0; i < totalNumOfItems; i ++) {
-		items[0] = true; //while the pickup items are true, then the item will be drawn
+		items[i] = true; //while the pickup items are true, then the item will be drawn
 	}
 }
 
@@ -631,39 +631,45 @@ bool Model::getItemIndex(int num) {
 }
 
 void Model::drawPlants() {
-	model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 20.0f)); //Position the right 3 bushes
-	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
-	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
-	updateMatrices();
-	plantFruit1.draw();
-	model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 20.0f)); //Position the right 3 bushes
-	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
-	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
-	updateMatrices();
-	plantFruit1.draw();
+	if (items[1]) {
+		model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 20.0f)); //Position the right 3 bushes
+		model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+		model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+		updateMatrices();
+		plantFruit1.draw();
+		model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 20.0f)); //Position the right 3 bushes
+		model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+		model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+		updateMatrices();
+		plantFruit1.draw();
+	}
 
-	model_matrix = translate(mat4(1.0), vec3(20.0f, -1.0f, 30.0f)); //Position the right 3 bushes
-	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
-	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
-	updateMatrices();
-	plantFruit2.draw();
-	model_matrix = translate(mat4(1.0), vec3(20.0f, -1.0f, 30.0f)); //Position the right 3 bushes
-	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
-	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
-	updateMatrices();
-	plantFruit2.draw();
+	if (items[2]) {
+		model_matrix = translate(mat4(1.0), vec3(-20.0f, -1.0f, -30.0f)); //Position the right 3 bushes
+		model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+		model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+		updateMatrices();
+		plantFruit2.draw();
+		model_matrix = translate(mat4(1.0), vec3(-20.0f, -1.0f, -30.0f)); //Position the right 3 bushes
+		model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+		model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+		updateMatrices();
+		plantFruit2.draw();
+	}
 
-	model_matrix = translate(mat4(1.0), vec3(20.0f, -1.0f, -20.0f)); //Position the right 3 bushes
-	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
-	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
-	updateMatrices();
-	plantFruit3.draw();
-	model_matrix = translate(mat4(1.0), vec3(20.0f, -1.0f, -20.0f)); //Position the right 3 bushes
-	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
-	model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
-	updateMatrices();
-	plantFruit3.draw();
+	if (items[3]) {
 
+		model_matrix = translate(mat4(1.0), vec3(20.0f, -1.0f, -20.0f)); //Position the right 3 bushes
+		model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+		model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+		updateMatrices();
+		plantFruit3.draw();
+		model_matrix = translate(mat4(1.0), vec3(20.0f, -1.0f, -20.0f)); //Position the right 3 bushes
+		model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+		model_matrix = scale(model_matrix, vec3(.5f, .5f, .5f)); //Position the window
+		updateMatrices();
+		plantFruit3.draw();
+	}
 	// below are plants
 	model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 15.0f)); //Position the right 3 bushes
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush

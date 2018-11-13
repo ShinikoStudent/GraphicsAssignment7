@@ -23,6 +23,7 @@ public:
 	void playCoinSoundEffect();
 	void playTickingSoundEffect();
 	void stopTickingSoundEffect();
+	void playWinSoundEffect();
 
 private:
 	SDL_AudioSpec wavSpec;
