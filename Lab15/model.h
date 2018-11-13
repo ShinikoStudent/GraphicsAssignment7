@@ -39,7 +39,9 @@ protected:
 	//Define the objects we want to render in our scene
 	TransparentTexModel tree;
 	TransparentTexModel plant;
-	TransparentTexModel plantFruit;
+	TransparentTexModel plantFruit1;
+	TransparentTexModel plantFruit2;
+	TransparentTexModel plantFruit3;
 	TransparentTexModel bush;
 	TransparentTexModel ceilingLight;
 	MultiTexModel aWindow;
@@ -78,6 +80,7 @@ protected:
 
 	int totalNumOfItems = 4; 
 	bool items[4]; //index 0 is the first cube i put in the room
+	void drawPlants();
 public:
 	Model();
 	void setItemIndexToFalse(int num);
