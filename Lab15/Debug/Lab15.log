@@ -1,16 +1,3 @@
-﻿  model.cpp
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.h(79): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(114): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(123): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(132): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(141): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(204): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(208): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(210): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(240): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(244): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(246): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(278): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(352): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.cpp(363): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+﻿  Sound.cpp
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\sound.cpp(59): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
   Lab15.vcxproj -> C:\Users\Keely Canniff\Documents\GitHub\GraphicsAssignment7\Debug\Lab15.exe
