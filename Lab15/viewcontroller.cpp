@@ -22,9 +22,13 @@
 #include <SDL.h>
 #include "viewcontroller.h"
 #include <iostream>
+#include <dos.h> //for delay
 #include <time.h>
+#include <windows.h>
 #include <stdlib.h>
 #include <glm.hpp>
+#include <chrono>
+#include <thread>
 #include <gtc/matrix_transform.hpp>
 #include "SDL_mixer.h"
 using namespace glm;
@@ -36,11 +40,15 @@ const double PI = 3.14159;
 
 Viewcontroller::Viewcontroller()
 {
-	timer = 0;
+	for (int i = 0; i < 4; i++) {
+		timer[1] = 0;
+	}
 	quit = false;
+	won = true;
 	window = 0;
 	ogl4context = 0;
 	playSoundEffectOnce = false;
+	playSoundEffectOnceTicking = false;
 	view_matrix = mat4(1.0);
 
 	moveForward = 0.0;
@@ -57,6 +65,7 @@ Viewcontroller::Viewcontroller()
 	audio.setup();
 	//The music that will be played
 	music = NULL;
+	doneTimer = 0;
 }
 
 //Initializes SDL, GLEW, OpenGL, and sound mixer
@@ -104,6 +113,7 @@ bool Viewcontroller::init()
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
 	*/
 	audio.playBGM();
+	//audio.playWinSoundEffect();
 
 	return true;  //Everything got initialized
 }
@@ -206,24 +216,154 @@ void Viewcontroller::updateLookAt()
 	//if (true) { eye = tempEye;}
 	//cout << "tempEye[0] is " << tempEye[0] << "\n";
 	//cout << "tempEye[2] is " << tempEye[2] << "\n";
+	//item 1 cube
 	if ((tempEye[0] < -28.0 && tempEye[0] > -31.0) && (tempEye[2] > 28.0 && tempEye[2] < 31.0)) {
-		cout << "timer " << timer << endl;
-		if (!playSoundEffectOnce && timer >= 500 && theWorld.getItemIndex(0)) {
+		//cout << "timer " << timer << endl;
+		if (!playSoundEffectOnce && timer[0] >= 400 && theWorld.getItemIndex(0)) {
 			audio.stopTickingSoundEffect();
 			gc.ItemCollected(0);
 			audio.playCoinSoundEffect();
 			playSoundEffectOnce = true;
 			theWorld.setItemIndexToFalse(0); //the first cube to disappear
+			audio.resumeMusic();
 		}
-		else if (theWorld.getItemIndex(0)) {
+		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(0) && timer[0] >0) {
+			audio.pauseBGM();
+			playSoundEffectOnceTicking = true;
 			audio.playTickingSoundEffect();
 		}
-		timer++;
+		timer[0]++;
 	}
 	else {
 		playSoundEffectOnce = false;
-		timer = 0;
+		if (timer[0] > 0) {
+			playSoundEffectOnceTicking = false;
+			audio.stopTickingSoundEffect();
+		}
+		timer[0] = 0;
 	}
+
+	if (!playSoundEffectOnceTicking) {
+		audio.resumeMusic();
+	}
+	else {
+		audio.pauseBGM();
+	}
+
+	//item 2 tree 1
+	//model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 20.0f)); //Position the right 3 bushes
+	if ((tempEye[0] > 34.0 && tempEye[0] < 36.0) && (tempEye[2] > 18.0 && tempEye[2] < 22.0)) {
+		//cout << "WIN tree 1 item 2 \n";
+		if (!playSoundEffectOnce && timer[1] >= 400 && theWorld.getItemIndex(1)) {
+			audio.stopTickingSoundEffect();
+			gc.ItemCollected(1);
+			audio.playCoinSoundEffect();
+			playSoundEffectOnce = true;
+			theWorld.setItemIndexToFalse(1); //the first cube to disappear
+			audio.resumeMusic();
+		}
+		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(1) && timer[1] > 0) {
+			audio.pauseBGM();
+			//cout << "play sound effect \n";
+			playSoundEffectOnceTicking = true;
+			audio.playTickingSoundEffect();
+		}
+		timer[1]++;
+	}
+	else {
+		playSoundEffectOnce = false;
+		if (timer[1] > 0) {
+			playSoundEffectOnceTicking = false;
+			audio.stopTickingSoundEffect();
+		}
+		timer[1] = 0;
+	}
+
+	//item 3 tree 2
+	//model_matrix = translate(mat4(1.0), vec3(-20.0f, -1.0f, -30.0f)); //Position the right 3 bushes
+	if ((tempEye[0] < -19.0 && tempEye[0] > -21.0) && (tempEye[2] < -29.0 && tempEye[2] > -31.0)) {
+		//cout << "WIN tree 1 item 2 \n";
+		if (!playSoundEffectOnce && timer[2] >= 400 && theWorld.getItemIndex(2)) {
+			audio.stopTickingSoundEffect();
+			gc.ItemCollected(2);
+			audio.playCoinSoundEffect();
+			playSoundEffectOnce = true;
+			theWorld.setItemIndexToFalse(2); //the first cube to disappear
+			audio.resumeMusic();
+		}
+		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(2) && timer[2] > 0) {
+			audio.pauseBGM();
+			//cout << "play sound effect \n";
+			playSoundEffectOnceTicking = true;
+			audio.playTickingSoundEffect();
+		}
+		timer[2]++;
+	}
+	else {
+		playSoundEffectOnce = false;
+		if (timer[2] > 0) {
+			playSoundEffectOnceTicking = false;
+			audio.stopTickingSoundEffect();
+		}
+		timer[2] = 0;
+	}
+	//item 3 tree 2
+	//model_matrix = translate(mat4(1.0), vec3(20.0f, -1.0f, -20.0f)); //Position the right 3 bushes
+	if ((tempEye[0] > 19.0 && tempEye[0] < 21.0) && (tempEye[2] < -19.0 && tempEye[2] > -21.0)) {
+		//cout << "WIN tree 1 item 2 \n";
+		if (!playSoundEffectOnce && timer[3] >= 200 && theWorld.getItemIndex(3)) {
+			audio.stopTickingSoundEffect();
+			gc.ItemCollected(3);
+			audio.playCoinSoundEffect();
+			playSoundEffectOnce = true;
+			theWorld.setItemIndexToFalse(3); //the first cube to disappear
+			audio.resumeMusic();
+		}
+		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(3) && timer[3] > 0) {
+			audio.pauseBGM();
+			//cout << "play sound effect \n";
+			playSoundEffectOnceTicking = true;
+			audio.playTickingSoundEffect();
+		}
+		timer[3]++;
+	}
+	else {
+		playSoundEffectOnce = false;
+		if (timer[3] > 0) {
+			playSoundEffectOnceTicking = false;
+			audio.stopTickingSoundEffect();
+		}
+		timer[3] = 0;
+	}
+
+	if(gc.DidUserWin()) {
+		/*
+		using namespace std::this_thread;     // sleep_for, sleep_until
+		using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
+		using std::chrono::system_clock;
+		sleep_for(10s);*/
+		audio.pauseBGM();
+		
+		doneTimer++;
+		if(won){ // won is first set to true
+			audio.playWinSoundEffect();
+			cout << "You win!" << endl;
+			won = false;;
+		}
+		if (doneTimer == 500) {
+			SDL_GL_DeleteContext(ogl4context);
+			audio.freeSounds();
+			SDL_DestroyWindow(window);
+			SDL_Quit();
+		}
+	}
+
+
+
+
+
+
+
 	if ((tempEye[0] < boarderValue && tempEye[0] > -boarderValue) && (tempEye[2] < boarderValue && tempEye[2] > -boarderValue)  )
 	{
 		eye = tempEye;

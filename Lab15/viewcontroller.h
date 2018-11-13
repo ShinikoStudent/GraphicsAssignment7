@@ -20,14 +20,16 @@ class Viewcontroller
 {
 	private:
 		bool quit;
-
+		bool playSoundEffectOnceTicking;
+		bool won;
 		//Variables to control user movement
 		vec3 tempEye;
 		vec3 eye;
 		vec3 aim;
 		vec3 up;
 		int boarderValue;
-		int timer; //used to make the player stay under the object
+		int timer [4]; //used to make the player stay under the object
+		int doneTimer;
 		mat4 view_matrix;
 		double MOVEANGLE;
 		double LOOKANGLE;
