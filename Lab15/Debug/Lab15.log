@@ -1,3 +1,40 @@
-﻿  Sound.cpp
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\sound.cpp(59): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+﻿  viewcontroller.cpp
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\model.h(79): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(227): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(248): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(249): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(254): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(255): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(416): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(417): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(418): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(436): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Lab15.vcxproj -> C:\Users\Keely Canniff\Documents\GitHub\GraphicsAssignment7\Debug\Lab15.exe

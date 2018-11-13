@@ -12,6 +12,7 @@ public:
 	void freeSounds();
 	//Mix_Music *bgm = Mix_LoadMUS("bgm.mp3"); //background music, longer than 10 seconds make it mix_music, WAV, MP3
 	Mix_Music *bgm;// = Mix_LoadMUS("C:/Users/Keely Canniff/Documents/uop/fall 2018/comp 153/assignment 7 grp/GraphicsAssignment7/audio/bgm.mp3"); //ba;
+	Mix_Chunk *walking;// = Mix_LoadMUS("C:/Users/Keely Canniff/Documents/uop/fall 2018/comp 153/assignment 7 grp/GraphicsAssignment7/audio/bgm.mp3"); //ba;
 	Mix_Chunk *soundEffect;// = Mix_LoadWAV("cow.wav");	 //less than 10 seconds
 	void playBGM();
 	void pauseBGM();
@@ -24,6 +25,9 @@ public:
 	void playTickingSoundEffect();
 	void stopTickingSoundEffect();
 	void playWinSoundEffect();
+	void playFootSteps();
+	void stopFootSteps();
+
 
 private:
 	SDL_AudioSpec wavSpec;

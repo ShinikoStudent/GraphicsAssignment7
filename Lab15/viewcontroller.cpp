@@ -50,7 +50,7 @@ Viewcontroller::Viewcontroller()
 	playSoundEffectOnce = false;
 	playSoundEffectOnceTicking = false;
 	view_matrix = mat4(1.0);
-
+	playWalkingOnce = false;
 	moveForward = 0.0;
 	moveSideways = 0.0;
 	MOVEANGLE = PI/2.0;
@@ -66,6 +66,7 @@ Viewcontroller::Viewcontroller()
 	//The music that will be played
 	music = NULL;
 	doneTimer = 0;
+	isWalking = false;
 }
 
 //Initializes SDL, GLEW, OpenGL, and sound mixer
@@ -144,22 +145,49 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			else if (theEvent->key.keysym.sym == SDLK_UP || theEvent->key.keysym.sym == SDLK_w)
 			{
 				moveForward = 0.075;
+				//audio.playFootSteps();
+				if (!playWalkingOnce) {
+					audio.playFootSteps();
+					playWalkingOnce = true;
+				}
+				isWalking = true;
 			}
 			else if (theEvent->key.keysym.sym == SDLK_LEFT || theEvent->key.keysym.sym == SDLK_a)
 			{
 				moveSideways = -0.075;
+				//audio.playFootSteps();
+				if (!playWalkingOnce) {
+					audio.playFootSteps();
+					playWalkingOnce = true;
+				} 
+				isWalking = true;
 			}
 			else if (theEvent->key.keysym.sym == SDLK_RIGHT || theEvent->key.keysym.sym == SDLK_d)
 			{
 				moveSideways = 0.075;
+				//audio.playFootSteps();
+				if (!playWalkingOnce) {
+					audio.playFootSteps();
+					playWalkingOnce = true;
+				}
+				isWalking = true; 
 			}
 			else if (theEvent->key.keysym.sym == SDLK_DOWN || theEvent->key.keysym.sym == SDLK_s)
 			{
 				moveForward = -0.075;
+				//audio.playFootSteps();
+				if (!playWalkingOnce) {
+					audio.playFootSteps();
+					playWalkingOnce = true;
+				}
+				isWalking = true; 
 			}
 			else if (theEvent->key.keysym.sym == SDLK_SPACE)
 			{
 				theWorld.toggleFilter();
+			}
+			else {
+				//audio.stopFootSteps();
 			}
 			break;
 		}
@@ -167,11 +195,24 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 		{
 			if (theEvent->key.keysym.sym == SDLK_UP || theEvent->key.keysym.sym == SDLK_DOWN || theEvent->key.keysym.sym == SDLK_w || theEvent->key.keysym.sym == SDLK_s)
 			{
+		
 				moveForward = 0;
+				isWalking = false;
+				playWalkingOnce = false;
+				if (!isWalking) {
+					audio.stopFootSteps();
+				}
+				
 			}
 			else if (theEvent->key.keysym.sym == SDLK_LEFT || theEvent->key.keysym.sym == SDLK_RIGHT || theEvent->key.keysym.sym == SDLK_a || theEvent->key.keysym.sym == SDLK_d)
 			{
+
 				moveSideways = 0;
+				isWalking = false;
+				playWalkingOnce = false;
+				if (!isWalking) {
+					audio.stopFootSteps();
+				} 
 			}
 			break;
 		}

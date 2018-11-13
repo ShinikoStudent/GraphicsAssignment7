@@ -89,6 +89,19 @@ void Sound::playWinSoundEffect() {
 	Mix_PlayChannel(2, soundEffect, 0);
 }
 
+void Sound::playFootSteps() {
+	//Mix_HaltChannel(1);
+	soundEffect = Mix_LoadWAV("sound/walking.wav");
+	Mix_PlayChannel(3, soundEffect, 0);
+}
+
+void Sound::stopFootSteps() {
+	//Mix_HaltChannel(1);
+	//Mix_PlayChannel(3, soundEffect, 0);
+	Mix_HaltChannel(3);
+}
+
+
 void Sound::freeSounds() {
 	//free up sounds
 	cout << "Play free sound /n";
@@ -96,6 +109,8 @@ void Sound::freeSounds() {
 	Mix_FreeMusic(bgm);
 	bgm = nullptr;
 	soundEffect = nullptr;
+	walking = nullptr;
+	Mix_FreeChunk(walking);
 	Mix_Quit(); //close the music mix 
 	SDL_CloseAudioDevice(deviceId);
 	SDL_FreeWAV(wavBuffer);
@@ -135,4 +150,5 @@ void Sound::resumeMusic() {
 void Sound::haltMusic() {
 	Mix_HaltMusic(); // halts music and puts play position to beginning
 }
+
 

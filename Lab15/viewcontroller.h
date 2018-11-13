@@ -53,6 +53,8 @@ class Viewcontroller
 		void run();
 		bool handleEvents(SDL_Event *theEvent);
 		void updateLookAt();
+		bool isWalking;
+		bool playWalkingOnce; //flag used to only play the sound once.
 
 
 };
