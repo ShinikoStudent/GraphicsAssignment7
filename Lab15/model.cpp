@@ -63,48 +63,8 @@ void Model::setUpLights()
 
 	//Now, set up the lights for the scene
 	lightInfo.totalLights = 4;
-	//lightInfo.globalAmbientLight = vec3(0.3, 0.3, 0.3);
-	lightInfo.globalAmbientLight = vec3(0.6, 0.6, 0.6);
-
-/*
-	lightInfo.lights[0].color = vec4(1.0, 0.0, 0.0, 1.0);
-	lightInfo.lights[0].position = vec4(-4.0, 0.0, -4.0, 1.0);
-	lightInfo.lights[0].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
-	lightInfo.lights[0].constantAttenuation = 2.0;
-	lightInfo.lights[0].linearAttenuation = 0.0;
-	lightInfo.lights[0].quadraticAttenuation = 0.0;
-	lightInfo.lights[0].isEnabled = 1;
-
-	lightInfo.lights[1].color = vec4(0.0, 1.0, 0.0, 1.0);
-	lightInfo.lights[1].position = vec4(0.0, 3.0, 0.0, 1.0);  //positional light since w = 1
-	lightInfo.lights[1].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
-	lightInfo.lights[1].constantAttenuation = 2.0;
-	lightInfo.lights[1].linearAttenuation = 0.0;
-	lightInfo.lights[1].quadraticAttenuation = 0.0;
-	lightInfo.lights[1].isEnabled = 1;
-
-	lightInfo.lights[2].color = vec4(0.0, 0.0, 1.0, 1.0);
-	lightInfo.lights[2].position = vec4(5.0, 2.5, 0.0, 1.0);  //positional light since w = 1
-	lightInfo.lights[2].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
-	lightInfo.lights[2].constantAttenuation = 2.0;
-	lightInfo.lights[2].linearAttenuation = 0.0;
-	lightInfo.lights[2].quadraticAttenuation = 0.0;
-	lightInfo.lights[2].isEnabled = 1;
-
-	
-	lightInfo.lights[3].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[3].position = vec4(3.5, 1.75, -3.5, 1.0);  //positional light since w = 1
-	lightInfo.lights[3].spotLightValues = vec4(1.0, 0.95, 4.0, 0.0);
-		//If the first parameter to spotLightValues is > 0, then this is a spotlight
-		//The second parameter to spotLightValues is the Spot Cosine Cutoff
-		//The third parameter to spotLightValues is the Spotlight Exponent
-		//The fourth parameter to spotLightValues is unused
-	lightInfo.lights[3].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
-	lightInfo.lights[3].constantAttenuation = 0.5;
-	lightInfo.lights[3].linearAttenuation = 0.0;
-	lightInfo.lights[3].quadraticAttenuation = 0.0;
-	lightInfo.lights[3].isEnabled = 1;
-	*/
+	lightInfo.globalAmbientLight = vec3(0.3, 0.3, 0.3);
+	//lightInfo.globalAmbientLight = vec3(0.6, 0.6, 0.6);
 
 	lightInfo.lights[0].color = vec4(1.0, 1.0, 1.0, 1.0);
 	lightInfo.lights[0].position = vec4(-39, 2, 40, 1.0);  //positional light since w = 1
@@ -302,6 +262,7 @@ bool Model::init()
 	plantFruit2.init("images/plantFruit.bmp");
 	plantFruit3.init("images/plantFruit.bmp");
 	bush.init("images/bush.bmp");
+	door.init("images/door.bmp");
 	ceilingLight.init("images/ceilingLight.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
 	p.init("images/star.bmp");
@@ -462,6 +423,11 @@ void Model::draw()
 	updateMatrices();
 	bush.draw();
 
+	model_matrix = translate(mat4(1.0), vec3(-5.0f, .25f, -39.9f)); //Position the right 3 bushes
+	model_matrix = rotate(model_matrix, degreesToRadians(0.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	updateMatrices();
+	door.draw();
+
 	drawPlants();
 
 
@@ -576,10 +542,56 @@ void Model::draw()
 	ceiling.draw();
 
 	//Render the objects that use their own shaders
-	glBindTexture(GL_TEXTURE_2D, brickNoiseTexID); //Need to make the noise texture active for the brick
-	model_matrix = translate(mat4(1.0), vec3(5.0f, 0.0f, -5.0f)); //position the brick
-	updateMatrices();
-	//brick.draw();
+	//glBindTexture(GL_TEXTURE_2D, brickNoiseTexID); //Need to make the noise texture active for the brick
+
+	//Create all the brick blocks
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 5; j++) {
+			model_matrix = translate(mat4(1.0), vec3(0.0f, float(5.0f - i), float(-39.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
+
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 5; j++) {
+			model_matrix = translate(mat4(1.0), vec3(-10.0f, float(5.0f - i), float(-39.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			model_matrix = translate(mat4(1.0), vec3(0.0f, float(0.0f - i), float(-35.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			model_matrix = translate(mat4(1.0), vec3(-10.0f, float(0.0f - i), float(-35.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
+
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 4; j++) {
+			model_matrix = translate(mat4(1.0), vec3(0.0f, float(-2.0f - i), float(-32.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
+
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 4; j++) {
+			model_matrix = translate(mat4(1.0), vec3(-10.0f, float(-2.0f - i), float(-32.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
 
 
 	//Render the objects that use their own shaders

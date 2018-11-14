@@ -44,6 +44,7 @@ protected:
 	TransparentTexModel plantFruit3;
 	TransparentTexModel bush;
 	TransparentTexModel ceilingLight;
+	TransparentTexModel door;
 	MultiTexModel aWindow;
 	MultiTexModel wallNorth;
 	MultiTexModel wallEast;

@@ -105,7 +105,9 @@ void Sound::stopFootSteps() {
 
 void Sound::freeSounds() {
 	//free up sounds
-	cout << "Play free sound /n";
+	//cout << "Play free sound /n"; < -- Commented this out because it was 
+										//running even after game ended
+										// - Jamie
 	Mix_FreeChunk(soundEffect);
 	Mix_FreeMusic(bgm);
 	bgm = nullptr;

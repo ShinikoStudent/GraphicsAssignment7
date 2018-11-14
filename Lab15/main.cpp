@@ -23,6 +23,7 @@ int main(int argc, char *argv[])  //main() must take these parameters when using
 	system("pause");
 	vc.run();
 
+	cout << "Game Over! (Place if they won for not)\n\n";
 	system("pause");
 	return 0;
 }
