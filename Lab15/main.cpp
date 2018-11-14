@@ -18,8 +18,8 @@ int main(int argc, char *argv[])  //main() must take these parameters when using
 	Viewcontroller vc;
 	cout << "Welcome to Adam and Eve Deceives!\n\n"
 		<<"Created by Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis\n\n"
-		<< "A Place where you must find the hidden fruit and the single floating cube hidden amongst other cubes or you die.\n"
-		<< "Need more time find the hidden room that will act as a base and you can finally say you've stopped time.\n\n"
+		<< "A Place where you must find the hidden fruit and the single floating cube hidden amongst other cubes (Hint: press the space bar to guide you) or you die.\n"
+		//<< "Need more time find the hidden room that will act as a base and you can finally say you've stopped time.\n\n"
 		<< "Good Luck and Enjoy!\n\n";
 
 	system("pause");

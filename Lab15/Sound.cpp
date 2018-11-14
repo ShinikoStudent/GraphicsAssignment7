@@ -131,7 +131,7 @@ void Sound::playBGM() {
 		printf(" bgm error Mix_LoadMUS(): %s\n", Mix_GetError());
 		// this might be a critical error...
 	}
-	Mix_PlayMusic(bgm, 0); //keep looping the song 
+	Mix_PlayMusic(bgm, 0); //play once
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
 	//}
 
