@@ -46,7 +46,7 @@ int Sound::setup() {
 
 
 
-	cout << "setup test end \n";
+	//	cout << "setup test end \n";
 	return 1;
 }
 
@@ -123,7 +123,7 @@ void Sound::freeSounds() {
 }
 
 void Sound::playBGM() {
-	cout << "Play BGM \n";
+	//cout << "Play BGM \n";
 	//bgm = Mix_LoadMUS("sound/barradeen-sea.wav");
 	bgm = Mix_LoadMUS("sound/speech.wav");
 

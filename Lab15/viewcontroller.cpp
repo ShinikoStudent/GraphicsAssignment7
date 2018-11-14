@@ -45,6 +45,7 @@ Viewcontroller::Viewcontroller()
 	}
 	quit = false;
 	won = true;
+	printWin = false;
 	window = 0;
 	ogl4context = 0;
 	playSoundEffectOnce = false;
@@ -382,13 +383,17 @@ void Viewcontroller::updateLookAt()
 		audio.pauseBGM();
 		
 		doneTimer++;
-		if(won){ // won is first set to true
+		if(won && doneTimer < 500){ // won is first set to true
 			audio.playWinSoundEffect();
-			cout << "You win!" << endl;
 			won = false;;
 			//quit = true; //cant put this line here, prevents song playing :(
+			printWin = true;
 		}
 		if (doneTimer == 500) {
+			if (printWin) {
+				cout << "You win!" << endl;
+			}
+			printWin = false;
 			SDL_GL_DeleteContext(ogl4context);
 			audio.freeSounds();
 			SDL_DestroyWindow(window);
@@ -422,11 +427,14 @@ void Viewcontroller::updateLookAt()
 
 	}
 	else {
-		SDL_GL_DeleteContext(ogl4context);
-		audio.freeSounds();
-		SDL_DestroyWindow(window);
-		SDL_Quit();
-		quit = false;
+		//SDL_GL_DeleteContext(ogl4context);
+		//audio.freeSounds();
+		//SDL_DestroyWindow(window);
+		//SDL_Quit();
+		if (!gc.DidUserWin()) {
+			cout << "You Lost" << endl;
+		}
+		quit = true;
 	}
 }
 
@@ -465,6 +473,6 @@ void Viewcontroller::run()
 	SDL_GL_DeleteContext(ogl4context);
 	audio.freeSounds();
 	SDL_DestroyWindow(window);
-	cout << "hashdj";
+	//cout << "hashdj";
 	SDL_Quit();
 }

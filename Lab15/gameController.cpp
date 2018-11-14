@@ -22,7 +22,6 @@ bool gameController::DidUserWin() {
 		}
 	}
 	if (numCount == totalNumOfItems) {
-		cout << "You Win\n\n";
 		return true;
 	}
 	return false;

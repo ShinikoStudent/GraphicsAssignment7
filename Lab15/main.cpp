@@ -20,12 +20,13 @@ int main(int argc, char *argv[])  //main() must take these parameters when using
 		<<"Created by Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis\n\n"
 		<< "A Place where you must find the hidden fruit and the single floating cube hidden amongst other cubes (Hint: press the space bar to guide you) or you die.\n"
 		//<< "Need more time find the hidden room that will act as a base and you can finally say you've stopped time.\n\n"
+		<< "when you find the item to collect stay under under/on the item until the ticking sound is gone \n"
 		<< "Good Luck and Enjoy!\n\n";
 
 	system("pause");
 	vc.run();
 
-	cout << "Game Over! (Place if they won or not)\n\n";
+	//cout << "Game Over! (Place if they won or not)\n\n";
 	system("pause");
 	return 0;
 }

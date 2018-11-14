@@ -55,6 +55,7 @@ class Viewcontroller
 		void updateLookAt();
 		bool isWalking;
 		bool playWalkingOnce; //flag used to only play the sound once.
+		bool printWin; //used to print the win once
 
 
 };
