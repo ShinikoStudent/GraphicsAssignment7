@@ -26,7 +26,7 @@ Sound::Sound()
 }
 
 int Sound::setup() {
-	cout << "setup test \n";
+	//cout << "setup test \n";
 
 	SDL_Init(SDL_INIT_AUDIO);
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) // was MIX_DEFAULT_CHANNELS but that gave an error. might need to play around wirh 4 param for sound qual

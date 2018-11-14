@@ -1,5 +1,6 @@
 #include "gameController.h"
-
+#include <iostream>
+using namespace std;
 
 
 gameController::gameController()
@@ -21,6 +22,7 @@ bool gameController::DidUserWin() {
 		}
 	}
 	if (numCount == totalNumOfItems) {
+		cout << "You Win\n\n";
 		return true;
 	}
 	return false;

@@ -378,11 +378,7 @@ void Viewcontroller::updateLookAt()
 	}
 
 	if(gc.DidUserWin()) {
-		/*
-		using namespace std::this_thread;     // sleep_for, sleep_until
-		using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
-		using std::chrono::system_clock;
-		sleep_for(10s);*/
+
 		audio.pauseBGM();
 		
 		doneTimer++;
@@ -390,13 +386,9 @@ void Viewcontroller::updateLookAt()
 			audio.playWinSoundEffect();
 			cout << "You win!" << endl;
 			won = false;;
+			quit = true;
 		}
-		if (doneTimer == 500) {
-			SDL_GL_DeleteContext(ogl4context);
-			audio.freeSounds();
-			SDL_DestroyWindow(window);
-			SDL_Quit();
-		}
+
 	}
 
 
@@ -428,6 +420,7 @@ void Viewcontroller::updateLookAt()
 		audio.freeSounds();
 		SDL_DestroyWindow(window);
 		SDL_Quit();
+		quit = false;
 	}
 }
 
@@ -466,5 +459,6 @@ void Viewcontroller::run()
 	SDL_GL_DeleteContext(ogl4context);
 	audio.freeSounds();
 	SDL_DestroyWindow(window);
+	cout << "hashdj";
 	SDL_Quit();
 }
