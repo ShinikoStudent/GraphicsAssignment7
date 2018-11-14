@@ -1,2 +1,4 @@
-﻿  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.exe
+﻿  main.cpp
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.h(81): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.exe
   Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.pdb (Partial PDB)
