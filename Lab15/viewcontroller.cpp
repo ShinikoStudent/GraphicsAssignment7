@@ -260,7 +260,7 @@ void Viewcontroller::updateLookAt()
 	//item 1 cube
 	if ((tempEye[0] < -28.0 && tempEye[0] > -31.0) && (tempEye[2] > 28.0 && tempEye[2] < 31.0)) {
 		//cout << "timer " << timer << endl;
-		if (!playSoundEffectOnce && timer[0] >= 400 && theWorld.getItemIndex(0)) {
+		if (!playSoundEffectOnce && timer[0] >= 300 && theWorld.getItemIndex(0)) {
 			audio.stopTickingSoundEffect();
 			gc.ItemCollected(0);
 			audio.playCoinSoundEffect();
@@ -295,7 +295,7 @@ void Viewcontroller::updateLookAt()
 	//model_matrix = translate(mat4(1.0), vec3(35.0f, -1.0f, 20.0f)); //Position the right 3 bushes
 	if ((tempEye[0] > 34.0 && tempEye[0] < 36.0) && (tempEye[2] > 18.0 && tempEye[2] < 22.0)) {
 		//cout << "WIN tree 1 item 2 \n";
-		if (!playSoundEffectOnce && timer[1] >= 400 && theWorld.getItemIndex(1)) {
+		if (!playSoundEffectOnce && timer[1] >= 300 && theWorld.getItemIndex(1)) {
 			audio.stopTickingSoundEffect();
 			gc.ItemCollected(1);
 			audio.playCoinSoundEffect();
@@ -324,7 +324,7 @@ void Viewcontroller::updateLookAt()
 	//model_matrix = translate(mat4(1.0), vec3(-20.0f, -1.0f, -30.0f)); //Position the right 3 bushes
 	if ((tempEye[0] < -19.0 && tempEye[0] > -21.0) && (tempEye[2] < -29.0 && tempEye[2] > -31.0)) {
 		//cout << "WIN tree 1 item 2 \n";
-		if (!playSoundEffectOnce && timer[2] >= 400 && theWorld.getItemIndex(2)) {
+		if (!playSoundEffectOnce && timer[2] >= 200 && theWorld.getItemIndex(2)) {
 			audio.stopTickingSoundEffect();
 			gc.ItemCollected(2);
 			audio.playCoinSoundEffect();
@@ -386,7 +386,13 @@ void Viewcontroller::updateLookAt()
 			audio.playWinSoundEffect();
 			cout << "You win!" << endl;
 			won = false;;
-			quit = true;
+			//quit = true; //cant put this line here, prevents song playing :(
+		}
+		if (doneTimer == 500) {
+			SDL_GL_DeleteContext(ogl4context);
+			audio.freeSounds();
+			SDL_DestroyWindow(window);
+			SDL_Quit();
 		}
 
 	}
