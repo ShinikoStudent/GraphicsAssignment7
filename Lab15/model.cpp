@@ -305,16 +305,16 @@ bool Model::init()
 	ceilingLight.init("images/ceilingLight.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
 	p.init("images/star.bmp");
-	wallNorth.init("images/wood.bmp","images/wood.bmp", program);
-	wallEast.init("images/wood.bmp", "images/wood.bmp", program);
-	wallWest.init("images/wood.bmp", "images/wood.bmp", program);
-	wallSouth.init("images/wood.bmp", "images/wood.bmp", program);
-	bedRoomWallNorthWest1.init("images/wood.bmp", "images/wood.bmp", program);
-	bedRoomWallNorthWest2.init("images/wood.bmp", "images/wood.bmp", program);
+	wallNorth.init("images/wood.bmp","images/vine.bmp", program);
+	wallEast.init("images/wood.bmp", "images/vine.bmp", program);
+	wallWest.init("images/wood.bmp", "images/vine.bmp", program);
+	wallSouth.init("images/wood.bmp", "images/vine.bmp", program);
+	bedRoomWallNorthWest1.init("images/wood.bmp", "images/vine.bmp", program);
+	bedRoomWallNorthWest2.init("images/wood.bmp", "images/vine.bmp", program);
 
 	//bedroom walls user can go through
-	bedRoomWallNorthEast1.init("images/wood.bmp", "images/wood.bmp", program);
-	bedRoomWallNorthEast2.init("images/wood.bmp", "images/wood.bmp", program);
+	bedRoomWallNorthEast1.init("images/wood.bmp", "images/vine.bmp", program);
+	bedRoomWallNorthEast2.init("images/wood.bmp", "images/vine.bmp", program);
 	ceiling.init("images/wood.bmp", "images/wood.bmp", program);
 	//Set up the brick object to use its own shaders
 	ShaderInfo shaders2[] = {

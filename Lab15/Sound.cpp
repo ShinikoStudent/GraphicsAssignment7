@@ -93,6 +93,7 @@ void Sound::playFootSteps() {
 	//Mix_HaltChannel(1);
 	soundEffect = Mix_LoadWAV("sound/walking.wav");
 	Mix_PlayChannel(3, soundEffect, 0);
+	Mix_Volume(3, MIX_MAX_VOLUME / 4);
 }
 
 void Sound::stopFootSteps() {
@@ -121,17 +122,27 @@ void Sound::freeSounds() {
 
 void Sound::playBGM() {
 	cout << "Play BGM \n";
-	bgm = Mix_LoadMUS("sound/barradeen-sea.wav");
+	//bgm = Mix_LoadMUS("sound/barradeen-sea.wav");
+	bgm = Mix_LoadMUS("sound/speech.wav");
 
 	if (!bgm || bgm == NULL) {
 		printf(" bgm error Mix_LoadMUS(): %s\n", Mix_GetError());
 		// this might be a critical error...
 	}
-	Mix_PlayMusic(bgm, -1); //keep looping the song 
+	Mix_PlayMusic(bgm, 0); //keep looping the song 
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
 	//}
 
 
+}
+
+bool Sound::isBGMplaying() {
+	if (Mix_PlayingMusic()) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 void Sound::pauseBGM() {

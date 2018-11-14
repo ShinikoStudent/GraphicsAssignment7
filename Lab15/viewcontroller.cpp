@@ -269,7 +269,7 @@ void Viewcontroller::updateLookAt()
 			audio.resumeMusic();
 		}
 		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(0) && timer[0] >0) {
-			audio.pauseBGM();
+			//audio.pauseBGM();
 			playSoundEffectOnceTicking = true;
 			audio.playTickingSoundEffect();
 		}
@@ -288,7 +288,7 @@ void Viewcontroller::updateLookAt()
 		audio.resumeMusic();
 	}
 	else {
-		audio.pauseBGM();
+		//audio.pauseBGM();
 	}
 
 	//item 2 tree 1
@@ -304,7 +304,7 @@ void Viewcontroller::updateLookAt()
 			audio.resumeMusic();
 		}
 		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(1) && timer[1] > 0) {
-			audio.pauseBGM();
+			//audio.pauseBGM();
 			//cout << "play sound effect \n";
 			playSoundEffectOnceTicking = true;
 			audio.playTickingSoundEffect();
@@ -333,7 +333,7 @@ void Viewcontroller::updateLookAt()
 			audio.resumeMusic();
 		}
 		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(2) && timer[2] > 0) {
-			audio.pauseBGM();
+			//audio.pauseBGM();
 			//cout << "play sound effect \n";
 			playSoundEffectOnceTicking = true;
 			audio.playTickingSoundEffect();
@@ -361,7 +361,7 @@ void Viewcontroller::updateLookAt()
 			audio.resumeMusic();
 		}
 		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(3) && timer[3] > 0) {
-			audio.pauseBGM();
+			//audio.pauseBGM();
 			//cout << "play sound effect \n";
 			playSoundEffectOnceTicking = true;
 			audio.playTickingSoundEffect();
@@ -419,6 +419,16 @@ void Viewcontroller::updateLookAt()
 
 	view_matrix = lookAt(eye, aim, up);  //calculate the view orientation matrix
 	theWorld.setViewMatrix(view_matrix);
+
+	if (audio.isBGMplaying()) {
+
+	}
+	else {
+		SDL_GL_DeleteContext(ogl4context);
+		audio.freeSounds();
+		SDL_DestroyWindow(window);
+		SDL_Quit();
+	}
 }
 
 void Viewcontroller::run()

@@ -27,6 +27,7 @@ public:
 	void playWinSoundEffect();
 	void playFootSteps();
 	void stopFootSteps();
+	bool isBGMplaying();
 
 
 private:

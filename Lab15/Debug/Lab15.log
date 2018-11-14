@@ -36,5 +36,5 @@ c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller
           [
               T=float
           ]
-c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(436): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\keely canniff\documents\github\graphicsassignment7\lab15\viewcontroller.cpp(446): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Lab15.vcxproj -> C:\Users\Keely Canniff\Documents\GitHub\GraphicsAssignment7\Debug\Lab15.exe
