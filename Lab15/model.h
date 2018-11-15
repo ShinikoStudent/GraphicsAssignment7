@@ -45,6 +45,9 @@ protected:
 	TransparentTexModel bush;
 	TransparentTexModel ceilingLight;
 	TransparentTexModel door;
+	TransparentTexModel fireplace;
+	TransparentTexModel aqua;
+	MultiTexModel aCarpet;
 	MultiTexModel aWindow;
 	MultiTexModel wallNorth;
 	MultiTexModel wallEast;

@@ -266,16 +266,18 @@ bool Model::init()
 	ceilingLight.init("images/ceilingLight.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
 	p.init("images/star.bmp");
-	wallNorth.init("images/wood.bmp","images/vine.bmp", program);
-	wallEast.init("images/wood.bmp", "images/vine.bmp", program);
-	wallWest.init("images/wood.bmp", "images/vine.bmp", program);
-	wallSouth.init("images/wood.bmp", "images/vine.bmp", program);
-	bedRoomWallNorthWest1.init("images/wood.bmp", "images/vine.bmp", program);
-	bedRoomWallNorthWest2.init("images/wood.bmp", "images/vine.bmp", program);
+	wallNorth.init("images/wood.bmp","images/doitforthevine.bmp", program);
+	wallEast.init("images/wood.bmp", "images/doitforthevine.bmp", program);
+	wallWest.init("images/wood.bmp", "images/doitforthevine.bmp", program);
+	wallSouth.init("images/wood.bmp", "images/doitforthevine.bmp", program);
+	bedRoomWallNorthWest1.init("images/wood.bmp", "images/doitforthevine.bmp", program);
+	bedRoomWallNorthWest2.init("images/wood.bmp", "images/doitforthevine.bmp", program);
+	fireplace.init("images/fireburning.bmp");
+	aqua.init("image/fishtank.bmp");
 
 	//bedroom walls user can go through
-	bedRoomWallNorthEast1.init("images/wood.bmp", "images/vine.bmp", program);
-	bedRoomWallNorthEast2.init("images/wood.bmp", "images/vine.bmp", program);
+	bedRoomWallNorthEast1.init("images/wood.bmp", "images/doitforthevine.bmp", program);
+	bedRoomWallNorthEast2.init("images/wood.bmp", "images/doitforthevine.bmp", program);
 	ceiling.init("images/wood.bmp", "images/wood.bmp", program);
 	//Set up the brick object to use its own shaders
 	ShaderInfo shaders2[] = {
@@ -593,6 +595,28 @@ void Model::draw()
 		}
 	}
 
+	//fireplace
+
+	model_matrix = translate(mat4(1.0), vec3(0.0, -3.0, 39.0)); //position the ground
+	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
+	model_matrix = scale(model_matrix, vec3(5.0f, 1.0f, 0.5f));
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(3.0, -3.0, 39.0)); //position the ground
+	model_matrix = rotate(model_matrix, degreesToRadians(-45.0f), vec3(1.0f, 1.0f, 1.0f)); //Make sure we rotate so that the normal is up!
+	model_matrix = scale(model_matrix, vec3(1.0f, 1.0f, 0.5f));
+	updateMatrices();
+	brick.draw();
+
+	//carpet
+
+	model_matrix = translate(mat4(1.0), vec3(0.0, -39.0, 0.0)); //position the ground
+	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
+	model_matrix = scale(model_matrix, vec3(10.0f, 5.0f, 2.0f));
+	updateMatrices();
+	aqua.draw();
+
 
 	//Render the objects that use their own shaders
 	glBindTexture(GL_TEXTURE_2D, brickNoiseTexID); //Need to make the noise texture active for the brick
@@ -624,6 +648,8 @@ void Model::draw()
 	wall.draw();
 	glDisable(GL_BLEND);
 	*/
+
+
 	if (filterToggle)  //render the filter if it is on
 	{
 		glDisable(GL_DEPTH_TEST); //Disabling the depth test ensures that the filter is rendered over the top of the other objects 

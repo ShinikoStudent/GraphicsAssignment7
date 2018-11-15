@@ -1,40 +1,19 @@
-﻿  viewcontroller.cpp
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.h(82): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(227): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(248): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(249): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(254): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(255): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(408): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(409): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(410): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\viewcontroller.cpp(439): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Lab15.vcxproj -> C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\Assignment7\GraphicsAssignment7\Debug\Lab15.exe
+﻿  model.cpp
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.h(85): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(74): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(83): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(92): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(101): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(164): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(168): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(170): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(200): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(204): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(206): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(238): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(315): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(315): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(326): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(326): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.exe
+  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.pdb (Partial PDB)
