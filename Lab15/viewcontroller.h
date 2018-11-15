@@ -41,6 +41,7 @@ class Viewcontroller
 		Sound audio;
 		Model theWorld;  //Model we want to render
 		bool playSoundEffectOnce; //used to make sure the audio is only fired once
+		bool gameIsSetup; //used to know if the game is already setup
 		SDL_Window *window;
 		SDL_GLContext ogl4context;
 		Mix_Music *music;

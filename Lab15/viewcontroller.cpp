@@ -62,6 +62,7 @@ Viewcontroller::Viewcontroller()
 	tempEye = vec3(0.0, 0.0, 0.0);
 	up = vec3(0.0, 1.0, 0.0);
 	boarderValue = 38;
+	gameIsSetup = false;
 	updateLookAt();  //aim will be calculated from the initial values of eye and MOVEANGLE
 	audio.setup();
 	//The music that will be played
@@ -115,6 +116,7 @@ bool Viewcontroller::init()
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
 	*/
 	audio.playBGM();
+	gameIsSetup = true;
 	//audio.playWinSoundEffect();
 
 	return true;  //Everything got initialized
@@ -145,9 +147,9 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			}
 			else if (theEvent->key.keysym.sym == SDLK_UP || theEvent->key.keysym.sym == SDLK_w)
 			{
-				moveForward = 0.075;
+				moveForward = 0.080;
 				//audio.playFootSteps();
-				if (!playWalkingOnce) {
+				if (!playWalkingOnce) { //handles the footsteps audio
 					audio.playFootSteps();
 					playWalkingOnce = true;
 				}
@@ -155,7 +157,7 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			}
 			else if (theEvent->key.keysym.sym == SDLK_LEFT || theEvent->key.keysym.sym == SDLK_a)
 			{
-				moveSideways = -0.075;
+				moveSideways = -0.080;
 				//audio.playFootSteps();
 				if (!playWalkingOnce) {
 					audio.playFootSteps();
@@ -165,7 +167,7 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			}
 			else if (theEvent->key.keysym.sym == SDLK_RIGHT || theEvent->key.keysym.sym == SDLK_d)
 			{
-				moveSideways = 0.075;
+				moveSideways = 0.080;
 				//audio.playFootSteps();
 				if (!playWalkingOnce) {
 					audio.playFootSteps();
@@ -175,7 +177,7 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			}
 			else if (theEvent->key.keysym.sym == SDLK_DOWN || theEvent->key.keysym.sym == SDLK_s)
 			{
-				moveForward = -0.075;
+				moveForward = -0.080;
 				//audio.playFootSteps();
 				if (!playWalkingOnce) {
 					audio.playFootSteps();
@@ -261,7 +263,7 @@ void Viewcontroller::updateLookAt()
 	//item 1 cube
 	if ((tempEye[0] < -28.0 && tempEye[0] > -31.0) && (tempEye[2] > 28.0 && tempEye[2] < 31.0)) {
 		//cout << "timer " << timer << endl;
-		if (!playSoundEffectOnce && timer[0] >= 300 && theWorld.getItemIndex(0)) {
+		if (!playSoundEffectOnce && timer[0] >= 300 && theWorld.getItemIndex(0)) { //is the user under a pick up item?
 			audio.stopTickingSoundEffect();
 			gc.ItemCollected(0);
 			audio.playCoinSoundEffect();
@@ -269,14 +271,14 @@ void Viewcontroller::updateLookAt()
 			theWorld.setItemIndexToFalse(0); //the first cube to disappear
 			audio.resumeMusic();
 		}
-		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(0) && timer[0] >0) {
+		else if (!playSoundEffectOnceTicking && theWorld.getItemIndex(0) && timer[0] >0) { 
 			//audio.pauseBGM();
 			playSoundEffectOnceTicking = true;
 			audio.playTickingSoundEffect();
 		}
 		timer[0]++;
 	}
-	else {
+	else { //the user leaves pick up location
 		playSoundEffectOnce = false;
 		if (timer[0] > 0) {
 			playSoundEffectOnceTicking = false;
@@ -378,7 +380,7 @@ void Viewcontroller::updateLookAt()
 		timer[3] = 0;
 	}
 
-	if(gc.DidUserWin()) {
+	if(gc.DidUserWin()) { //if the user wins then pause BGM and play win sound
 
 		audio.pauseBGM();
 		
@@ -426,12 +428,12 @@ void Viewcontroller::updateLookAt()
 	if (audio.isBGMplaying()) {
 
 	}
-	else {
+	else { //if the time runs out before all of the items are collected
 		//SDL_GL_DeleteContext(ogl4context);
 		//audio.freeSounds();
 		//SDL_DestroyWindow(window);
 		//SDL_Quit();
-		if (!gc.DidUserWin()) {
+		if (!gc.DidUserWin() && gameIsSetup) {
 			cout << "You Lost" << endl;
 		}
 		quit = true;
