@@ -597,24 +597,21 @@ void Model::draw()
 
 	//fireplace
 
-	model_matrix = translate(mat4(1.0), vec3(0.0, -3.0, 39.0)); //position the ground
+	model_matrix = translate(mat4(1.0), vec3(0.0, -3.0, 39.0)); //position the base
 	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
 	model_matrix = scale(model_matrix, vec3(5.0f, 1.0f, 0.5f));
 	updateMatrices();
 	brick.draw();
 
-	model_matrix = translate(mat4(1.0), vec3(3.0, -3.0, 39.0)); //position the ground
+	model_matrix = translate(mat4(1.0), vec3(0.0, -5.0, 30.0)); //position the mantel of fireplace
 	model_matrix = rotate(model_matrix, degreesToRadians(-45.0f), vec3(1.0f, 1.0f, 1.0f)); //Make sure we rotate so that the normal is up!
 	model_matrix = scale(model_matrix, vec3(1.0f, 1.0f, 0.5f));
 	updateMatrices();
-	brick.draw();
+	fireplace.draw();
 
 	//carpet
 
-	model_matrix = translate(mat4(1.0), vec3(0.0, -39.0, 0.0)); //position the ground
-	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
-	model_matrix = scale(model_matrix, vec3(10.0f, 5.0f, 2.0f));
-	updateMatrices();
+	model_matrix = translate(mat4(1.0), vec3(3.0, -3.0, 39.0)); //position the aquarium
 	aqua.draw();
 
 
