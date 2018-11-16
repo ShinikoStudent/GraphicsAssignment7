@@ -1,3 +1,4 @@
 ﻿  main.cpp
-c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.h(85): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Lab15.vcxproj -> C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\Assignment7\GraphicsAssignment7\Debug\Lab15.exe
+c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.h(85): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.exe
+  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.pdb (Partial PDB)
