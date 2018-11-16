@@ -603,9 +603,9 @@ void Model::draw()
 	updateMatrices();
 	brick.draw();
 
-	model_matrix = translate(mat4(1.0), vec3(0.0, 0.0, 38.0)); //position the mantel of fireplace
+	model_matrix = translate(mat4(1.0), vec3(0.0, -1.0, 38.0)); //position the mantel of fireplace
 	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(0.0f, 0.0f, 1.0f)); //Make sure we rotate so that the normal is up!
-	model_matrix = scale(model_matrix, vec3(0.5f, 0.5f, 0.5f));
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f));
 	updateMatrices();
 	fireplace.draw();
 
