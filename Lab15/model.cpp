@@ -300,6 +300,7 @@ bool Model::init()
 	bush.init("images/bush.bmp");
 	door.init("images/door.bmp");
 	fireplace.init("images/warmth2.bmp");
+	carpet.init("images/carpet.bmp");
 	aqua.init("image/fishtank.bmp");
 	ceilingLight.init("images/ceilingLight.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
@@ -465,6 +466,13 @@ void Model::draw()
 	updateMatrices();
 	door.draw();
 
+	//carpet
+	//model_matrix = translate(mat4(1.0), vec3(0.0, 3.0, 35.0)); //position the carpet
+	//carpet.draw();
+	//model_matrix = translate(mat4(1.0), vec3(1.0, 1.0, 35.0)); //position the aquarium
+	//cube.draw();
+
+
 	model_matrix = translate(mat4(1.0), vec3(0.0, -0.55, 37.5)); //position the mantel of fireplace
 	//model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(0.0f, 0.0f, 1.0f)); //Make sure we rotate so that the normal is up!
 	model_matrix = scale(model_matrix, vec3(0.9f, 0.9f, 0.9f));
@@ -472,7 +480,6 @@ void Model::draw()
 	fireplace.draw();
 
 	drawPlants();
-
 
 	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 1.0f)); //Position the light bulb 1
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
@@ -760,10 +767,6 @@ void Model::draw()
 	model_matrix = scale(model_matrix, vec3(5.0f, 1.0f, 0.5f));
 	updateMatrices();
 	brick.draw();*/
-
-	//model_matrix = translate(mat4(1.0), vec3(3.0, -3.0, 35.0)); //position the aquarium
-	//aqua.draw();
-
 
 	//Render the objects that use their own shaders
 	glBindTexture(GL_TEXTURE_2D, brickNoiseTexID); //Need to make the noise texture active for the brick

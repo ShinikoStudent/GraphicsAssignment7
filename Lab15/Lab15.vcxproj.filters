@@ -72,6 +72,9 @@
     <ClInclude Include="gameController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cube.cpp">
@@ -123,6 +126,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="gameController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tank.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
