@@ -133,6 +133,9 @@ void Viewcontroller::display()
 
 bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 {
+	//Uint8 *keystate = SDL_GetKeyState(NULL);
+	const Uint8 *state = SDL_GetKeyboardState(NULL);
+
 	switch(theEvent->type)
 	{
 		case SDL_QUIT:  //User pressed the escape key
@@ -192,16 +195,23 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			else {
 				//audio.stopFootSteps();
 			}
+
+		
+
 			break;
 		}
 		case SDL_KEYUP:
-		{
+		{/*
+			if((theEvent->key.keysym.sym == SDLK_UP || theEvent->key.keysym.sym == SDLK_DOWN || theEvent->key.keysym.sym == SDLK_w || theEvent->key.keysym.sym == SDLK_s)   || (theEvent->key.keysym.sym == SDLK_LEFT || theEvent->key.keysym.sym == SDLK_RIGHT || theEvent->key.keysym.sym == SDLK_a || theEvent->key.keysym.sym == SDLK_d)){
+				isWalking = false;
+				playWalkingOnce = false;
+			} */
 			if (theEvent->key.keysym.sym == SDLK_UP || theEvent->key.keysym.sym == SDLK_DOWN || theEvent->key.keysym.sym == SDLK_w || theEvent->key.keysym.sym == SDLK_s)
 			{
 		
 				moveForward = 0;
-				isWalking = false;
-				playWalkingOnce = false;
+				//isWalking = false;
+				//playWalkingOnce = false;
 				if (!isWalking) {
 					audio.stopFootSteps();
 				}
@@ -211,8 +221,8 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			{
 
 				moveSideways = 0;
-				isWalking = false;
-				playWalkingOnce = false;
+				//isWalking = false;
+				//playWalkingOnce = false;
 				if (!isWalking) {
 					audio.stopFootSteps();
 				} 
@@ -231,6 +241,15 @@ bool Viewcontroller::handleEvents(SDL_Event *theEvent)
 			break;
 		}
 	} //end the switch
+
+	if (!state[SDL_SCANCODE_LEFT] && !state[SDL_SCANCODE_RIGHT] && !state[SDL_SCANCODE_UP] && !state[SDL_SCANCODE_DOWN] && !state[SDL_SCANCODE_A] && !state[SDL_SCANCODE_D] && !state[SDL_SCANCODE_W] && !state[SDL_SCANCODE_S]) {
+		//printf("<LEFT> is NOT pressed.\n");
+		isWalking = false;
+		playWalkingOnce = false;
+		audio.stopFootSteps();
+	} 
+
+
 	return false;  //the program should not end
 }
 
