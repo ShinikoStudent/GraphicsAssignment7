@@ -1,7 +1,7 @@
 //FileName:		main.cpp
-//Programmer:	Dan Cliburn
+//Programmer:	Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis
 //Date:			4/20/2015
-//Purpose:		This file defines the main() function for Lab 15.
+//Purpose:		This file defines the main() function for assignment 7.
 //Movement is controller with wasd and view direction is changed with the mouse.
 //The program ends when the user presses the <Esc> key
 
@@ -16,17 +16,25 @@ int main(int argc, char *argv[])  //main() must take these parameters when using
 	// we made the game a collection game. you need to collect the 4 items (1 floating cube, and 3 fruit trees) to win the game.
 	//if you fail to collect all 4 items before the countdown ends, you lose the game.
 	Viewcontroller vc;
-	cout << "Welcome to Adam and Eve Deceives!\n\n"
-		<<"Created by Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis\n\n"
-		<< "A Place where you must find the hidden fruit and the single floating cube hidden amongst other cubes (Hint: press the space bar to guide you) or you die.\n"
-		//<< "Need more time find the hidden room that will act as a base and you can finally say you've stopped time.\n\n"
-		<< "when you find the item to collect stay under under/on the item until the ticking sound is gone \n"
-		<< "Good Luck and Enjoy!\n\n";
+	cout << "\n============== Welcome to Adam and Eve Deceives! ============== \n"
+		<< "Created by Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis\n\n"
+		<< "A place where you must find hidden fruits and a single floating cube hidden amongst other cubes. \n"
+		<< "(Hint: the space bar can help with the cubes)"
+		<< "When you find an item to collect, stand inside it (or under it) and\n"
+		<< "a ticker will sound off until a you hear a loud \"ding!\" \n"
+		<< "to indicate you have collected the item.\n"
+		<< "Move with WASD and use the space bar to see the hidden items.\n\n"
+		<< "*SOUND WILL NEED TO BE TURNED ON.*\n"
+		<< "*EXTRA CREDIT:*\n"
+		<< "- We have 5 sounds added(background sound, footsteps, winning sound, ticking sound, pickup sound)\n"
+		<< "- Game has a win/lose condition. You win by collecting 1 floating cube and 3 fruit trees\n"
+		<< "  or you lose by not collecting them within the time limit.\n\n"
+		<< "Good Luck and Enjoy Collecting!\n\n";
 
 	system("pause");
 	vc.run();
 
-	//cout << "Game Over! (Place if they won or not)\n\n";
+	//cout << "Game Finished\n\n";
 	system("pause");
 	return 0;
 }

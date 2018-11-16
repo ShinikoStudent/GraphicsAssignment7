@@ -1,5 +1,5 @@
 //FileName:		model.cpp
-//Programmer:	Dan Cliburn
+//Programmer:	Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis
 //Date:			4/20/2015
 //Purpose:		Define the methods for the World Model class.
 //The init() method needs to set up OpenGL and GLEW and prepare all objects (and their shaders) to be rendered.
@@ -56,51 +56,87 @@ void Model::setUpLights()
 	//IMPORTANT - If you change this structure in any way you need to change it in all fragment shader(s) as well!!!
 	struct Lights
 	{
-		LightProperties lights[4];
+		LightProperties lights[7];
 		vec3 globalAmbientLight;
 		int totalLights;
 	} lightInfo;
 
 	//Now, set up the lights for the scene
-	lightInfo.totalLights = 4;
-	lightInfo.globalAmbientLight = vec3(0.3, 0.3, 0.3);
+	lightInfo.totalLights = 7;
+	lightInfo.globalAmbientLight = vec3(0.2, 0.2, 0.2);
 	//lightInfo.globalAmbientLight = vec3(0.6, 0.6, 0.6);
 
+	//Cube room light
 	lightInfo.lights[0].color = vec4(1.0, 1.0, 1.0, 1.0);
 	lightInfo.lights[0].position = vec4(-39, 2, 40, 1.0);  //positional light since w = 1
 	lightInfo.lights[0].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[0].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[0].constantAttenuation = 1.0;
-	lightInfo.lights[0].linearAttenuation = 0.1;
+	lightInfo.lights[0].linearAttenuation = 0.15;
 	lightInfo.lights[0].quadraticAttenuation = 0.0;
 	lightInfo.lights[0].isEnabled = 1;
 
+	//Main room left light
 	lightInfo.lights[1].color = vec4(1.0, 1.0, 1.0, 1.0);
 	lightInfo.lights[1].position = vec4(-39, 2, -40, 1.0);  //positional light since w = 1
 	lightInfo.lights[1].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[1].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[1].constantAttenuation = 1.0;
-	lightInfo.lights[1].linearAttenuation = 0.1;
+	lightInfo.lights[1].linearAttenuation = 0.15;
 	lightInfo.lights[1].quadraticAttenuation = 0.0;
 	lightInfo.lights[1].isEnabled = 1;
 
+	//Main room right light
 	lightInfo.lights[2].color = vec4(1.0, 1.0, 1.0, 1.0);
 	lightInfo.lights[2].position = vec4(39, 2, -40, 1.0);  //positional light since w = 1
 	lightInfo.lights[2].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[2].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[2].constantAttenuation = 1.0;
-	lightInfo.lights[2].linearAttenuation = 0.1;
+	lightInfo.lights[2].linearAttenuation = 0.15;
 	lightInfo.lights[2].quadraticAttenuation = 0.0;
 	lightInfo.lights[2].isEnabled = 1;
 
+	//Main room right middle light
 	lightInfo.lights[3].color = vec4(1.0, 1.0, 1.0, 1.0);
 	lightInfo.lights[3].position = vec4(39, 2, 1, 1.0);  //positional light since w = 1
 	lightInfo.lights[3].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
-	lightInfo.lights[3].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[3].spotConeDirection = vec4(0.25, 1.0, -0.25, 0.0);
 	lightInfo.lights[3].constantAttenuation = 1.0;
-	lightInfo.lights[3].linearAttenuation = 0.1;
+	lightInfo.lights[3].linearAttenuation = 0.15;
 	lightInfo.lights[3].quadraticAttenuation = 0.0;
 	lightInfo.lights[3].isEnabled = 1;
+
+	//Fireplace room light
+	lightInfo.lights[4].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[4].position = vec4(0, 2, 40, 1.0);  //positional light since w = 1
+	lightInfo.lights[4].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[4].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[4].constantAttenuation = 1.0;
+	lightInfo.lights[4].linearAttenuation = 0.15;
+	lightInfo.lights[4].quadraticAttenuation = 0.0;
+	lightInfo.lights[4].isEnabled = 1;
+
+	//extra room bottom right light
+	lightInfo.lights[5].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[5].position = vec4(39, 2, 40, 1.0);  //positional light since w = 1
+	lightInfo.lights[5].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[5].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[5].constantAttenuation = 1.0;
+	lightInfo.lights[5].linearAttenuation = 0.15;
+	lightInfo.lights[5].quadraticAttenuation = 0.0;
+	lightInfo.lights[5].isEnabled = 1;
+
+	//Entrance light
+	lightInfo.lights[6].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[6].position = vec4(-5, 2, -35, 1.0);  //positional light since w = 1 
+	lightInfo.lights[6].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[6].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[6].constantAttenuation = 1.5;
+	lightInfo.lights[6].linearAttenuation = 0.2;
+	lightInfo.lights[6].quadraticAttenuation = 0.0;
+	lightInfo.lights[6].isEnabled = 1;
+	
+
 
 	//Pass the light info to the shaders in a Uniform Buffer Object.
 	//This allows ALL shaders to be able to access the light information.
@@ -263,6 +299,8 @@ bool Model::init()
 	plantFruit3.init("images/plantFruit.bmp");
 	bush.init("images/bush.bmp");
 	door.init("images/door.bmp");
+	fireplace.init("images/warmth2.bmp");
+	aqua.init("image/fishtank.bmp");
 	ceilingLight.init("images/ceilingLight.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
 	p.init("images/star.bmp");
@@ -272,8 +310,7 @@ bool Model::init()
 	wallSouth.init("images/wood.bmp", "images/doitforthevine.bmp", program);
 	bedRoomWallNorthWest1.init("images/wood.bmp", "images/doitforthevine.bmp", program);
 	bedRoomWallNorthWest2.init("images/wood.bmp", "images/doitforthevine.bmp", program);
-	fireplace.init("images/warmth.bmp");
-	aqua.init("image/fishtank.bmp");
+
 
 	//bedroom walls user can go through
 	bedRoomWallNorthEast1.init("images/wood.bmp", "images/doitforthevine.bmp", program);
@@ -414,8 +451,6 @@ void Model::draw()
 	updateMatrices();
 	bush.draw();
 
-
-
 	model_matrix = translate(mat4(1.0), vec3(-40.0f, 0.5f, 7.50f)); //Position the right 3 bushes
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
 	updateMatrices();
@@ -430,42 +465,89 @@ void Model::draw()
 	updateMatrices();
 	door.draw();
 
+	model_matrix = translate(mat4(1.0), vec3(0.0, -0.55, 37.5)); //position the mantel of fireplace
+	//model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(0.0f, 0.0f, 1.0f)); //Make sure we rotate so that the normal is up!
+	model_matrix = scale(model_matrix, vec3(0.9f, 0.9f, 0.9f));
+	updateMatrices();
+	fireplace.draw();
+
 	drawPlants();
 
 
-	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 2.0f)); //Position the light bulb 1
+	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 1.0f)); //Position the light bulb 1
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
-	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 2.0f)); //Position the light bulb 1
+	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 1.0f)); //Position the light bulb 1
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
 
 	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, -35.0f)); //Position the light bulb 2
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
 	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, -35.0f)); //Position the light bulb 2
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
 
-	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, -35.0f)); //Position the light bulb 3
+	model_matrix = translate(mat4(1.0), vec3(-37.0f, 3.5f, -35.0f)); //Position the light bulb 3
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
-	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, -35.0f)); //Position the light bulb 3
+	model_matrix = translate(mat4(1.0), vec3(-37.0f, 3.5f, -35.0f)); //Position the light bulb 3
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
 
-	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, 35.0f)); //Position the light bulb 4
+	model_matrix = translate(mat4(1.0), vec3(-37.0f, 3.5f, 35.0f)); //Position the light bulb 4
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
-	model_matrix = translate(mat4(1.0), vec3(-38.0f, 3.5f, 35.0f)); //Position the light bulb 4
+	model_matrix = translate(mat4(1.0), vec3(-37.0f, 3.5f, 35.0f)); //Position the light bulb 4
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
+	updateMatrices();
+	ceilingLight.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(37.0f, 3.5f, 35.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
+	updateMatrices();
+	ceilingLight.draw();
+	model_matrix = translate(mat4(1.0), vec3(37.0f, 3.5f, 35.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
+	updateMatrices();
+	ceilingLight.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-5.0f, 3.5f, -35.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
+	updateMatrices();
+	ceilingLight.draw();
+	model_matrix = translate(mat4(1.0), vec3(-5.0f, 3.5f, -35.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
+	updateMatrices();
+	ceilingLight.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(0.0f, 3.5f, 28.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
+	updateMatrices();
+	ceilingLight.draw();
+	model_matrix = translate(mat4(1.0), vec3(0.0f, 3.5f, 28.0f)); //Position the light bulb 4
+	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Rotate
+	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
 
@@ -595,21 +677,89 @@ void Model::draw()
 		}
 	}
 
-	//fireplace
+	//For fireplace
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 2; j++) {
+			model_matrix = translate(mat4(1.0), vec3(-1.0f, float(5.0f - i), float(39.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
 
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 2; j++) {
+			model_matrix = translate(mat4(1.0), vec3(0.0f, float(5.0f - i), float(39.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
+
+
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 2; j++) {
+			model_matrix = translate(mat4(1.0), vec3(1.0f, float(5.0f - i), float(39.0f + j))); //position the brick
+			updateMatrices();
+			brick.draw();
+		}
+	}
+
+	model_matrix = translate(mat4(1.0), vec3(1.5f, -2.0f, 36.5f)); //position the brick
+	model_matrix = translate(model_matrix, vec3(1.0f, 2.0f, 2.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(1.5f, -3.0f, 36.5f)); //position the brick
+	model_matrix = translate(model_matrix, vec3(1.0f, 2.0f, 2.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(1.5f, -4.0f, 36.5f)); //position the brick
+	model_matrix = translate(model_matrix, vec3(1.0f, 2.0f, 2.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-3.5f, -2.0f, 36.5f)); //position the brick
+	model_matrix = translate(model_matrix, vec3(1.0f, 2.0f, 2.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-3.5f, -3.0f, 36.5f)); //position the brick
+	model_matrix = translate(model_matrix, vec3(1.0f, 2.0f, 2.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-3.5f, -4.0f, 36.5f)); //position the brick
+	model_matrix = translate(model_matrix, vec3(1.0f, 2.0f, 2.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	/*
+	model_matrix = translate(mat4(1.0), vec3(-1.0f, 0.0f, 39.0f)); //position the brick
+	//model_matrix = scale(model_matrix, vec3(3.0f, 5.0f, 1.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(-1.0f, 0.0f, 38.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(0.0f, 0.0f, 39.0f)); //position the brick
+	updateMatrices();
+	brick.draw();
+
+	model_matrix = translate(mat4(1.0), vec3(0.0f, 0.0f, 38.0f)); //position the brick
+	updateMatrices();
+	brick.draw();*/
+
+
+
+	//fireplace
+	/*
 	model_matrix = translate(mat4(1.0), vec3(0.0, -3.0, 39.0)); //position the base
 	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
 	model_matrix = scale(model_matrix, vec3(5.0f, 1.0f, 0.5f));
 	updateMatrices();
-	brick.draw();
-
-	model_matrix = translate(mat4(1.0), vec3(0.0, -1.0, 38.0)); //position the mantel of fireplace
-	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(0.0f, 0.0f, 1.0f)); //Make sure we rotate so that the normal is up!
-	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f));
-	updateMatrices();
-	fireplace.draw();
-
-	//carpet
+	brick.draw();*/
 
 	//model_matrix = translate(mat4(1.0), vec3(3.0, -3.0, 35.0)); //position the aquarium
 	//aqua.draw();

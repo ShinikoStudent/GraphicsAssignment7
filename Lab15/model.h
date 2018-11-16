@@ -1,5 +1,5 @@
 //FileName:		Model.h
-//Programmer:	Dan Cliburn
+//Programmer:	Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis
 //Date:			4/20/2015
 //Purpose:		This file defines the header for the WorldModel class.
 //This Model class differs from ones in previous labs in that it is responsible for loading the shaders and 

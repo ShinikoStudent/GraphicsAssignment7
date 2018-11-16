@@ -1,5 +1,5 @@
 //FileName:		Viewcontroller.cpp
-//Programmer:	Dan Cliburn
+//Programmer:	Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis
 //Date:			4/20/2015
 //Purpose:		This file defines the methods for the Viewcontroller class
 //See:  http://www.sdltutorials.com/sdl-tutorial-basics/
@@ -393,7 +393,7 @@ void Viewcontroller::updateLookAt()
 		}
 		if (doneTimer == 500) {
 			if (printWin) {
-				cout << "You win!" << endl;
+				cout << "\n\nCongrats, you win!\n\n" << endl;
 			}
 			printWin = false;
 			SDL_GL_DeleteContext(ogl4context);
@@ -434,7 +434,7 @@ void Viewcontroller::updateLookAt()
 		//SDL_DestroyWindow(window);
 		//SDL_Quit();
 		if (!gc.DidUserWin() && gameIsSetup) {
-			cout << "You Lost" << endl;
+			cout << "\n\nTry again next time, you lost... \n\n" << endl;
 		}
 		quit = true;
 	}

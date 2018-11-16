@@ -1,5 +1,5 @@
 //FileName:		viewcontroller.h
-//Programmer:	Dan Cliburn
+//Programmer:	Keely Canniff, Jamie Lynn Culilap, and Naomi Nunis
 //Date:			4/20/2015
 //Purpose:		This file defines the header for the Viewcontroller class
 //This class is responsible for setting up SDL and handing user input.
