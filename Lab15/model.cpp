@@ -56,19 +56,19 @@ void Model::setUpLights()
 	//IMPORTANT - If you change this structure in any way you need to change it in all fragment shader(s) as well!!!
 	struct Lights
 	{
-		LightProperties lights[7];
+		LightProperties lights[8];
 		vec3 globalAmbientLight;
 		int totalLights;
 	} lightInfo;
 
 	//Now, set up the lights for the scene
-	lightInfo.totalLights = 7;
-	lightInfo.globalAmbientLight = vec3(0.2, 0.2, 0.2);
+	lightInfo.totalLights = 8;
+	lightInfo.globalAmbientLight = vec3(0.1, 0.1, 0.1);
 	//lightInfo.globalAmbientLight = vec3(0.6, 0.6, 0.6);
 
 	//Cube room light
 	lightInfo.lights[0].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[0].position = vec4(-39, 2, 40, 1.0);  //positional light since w = 1
+	lightInfo.lights[0].position = vec4(-35, 2, 45, 1.0);  //positional light since w = 1
 	lightInfo.lights[0].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[0].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[0].constantAttenuation = 1.0;
@@ -78,7 +78,7 @@ void Model::setUpLights()
 
 	//Main room left light
 	lightInfo.lights[1].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[1].position = vec4(-39, 2, -40, 1.0);  //positional light since w = 1
+	lightInfo.lights[1].position = vec4(-50, 2, -40, 1.0);  //positional light since w = 1
 	lightInfo.lights[1].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[1].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[1].constantAttenuation = 1.0;
@@ -88,7 +88,7 @@ void Model::setUpLights()
 
 	//Main room right light
 	lightInfo.lights[2].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[2].position = vec4(39, 2, -40, 1.0);  //positional light since w = 1
+	lightInfo.lights[2].position = vec4(45, 2, -40, 1.0);  //positional light since w = 1
 	lightInfo.lights[2].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[2].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[2].constantAttenuation = 1.0;
@@ -98,7 +98,7 @@ void Model::setUpLights()
 
 	//Main room right middle light
 	lightInfo.lights[3].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[3].position = vec4(39, 2, 1, 1.0);  //positional light since w = 1
+	lightInfo.lights[3].position = vec4(45, 2, 1, 1.0);  //positional light since w = 1
 	lightInfo.lights[3].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[3].spotConeDirection = vec4(0.25, 1.0, -0.25, 0.0);
 	lightInfo.lights[3].constantAttenuation = 1.0;
@@ -108,7 +108,7 @@ void Model::setUpLights()
 
 	//Fireplace room light
 	lightInfo.lights[4].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[4].position = vec4(0, 2, 40, 1.0);  //positional light since w = 1
+	lightInfo.lights[4].position = vec4(0, 2, 45, 1.0);  //positional light since w = 1
 	lightInfo.lights[4].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[4].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[4].constantAttenuation = 1.0;
@@ -118,7 +118,7 @@ void Model::setUpLights()
 
 	//extra room bottom right light
 	lightInfo.lights[5].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[5].position = vec4(39, 2, 40, 1.0);  //positional light since w = 1
+	lightInfo.lights[5].position = vec4(45, 2, 45, 1.0);  //positional light since w = 1
 	lightInfo.lights[5].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[5].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[5].constantAttenuation = 1.0;
@@ -128,7 +128,7 @@ void Model::setUpLights()
 
 	//Entrance light
 	lightInfo.lights[6].color = vec4(1.0, 1.0, 1.0, 1.0);
-	lightInfo.lights[6].position = vec4(-5, 2, -35, 1.0);  //positional light since w = 1 
+	lightInfo.lights[6].position = vec4(-5, 2, -45, 1.0);  //positional light since w = 1 
 	lightInfo.lights[6].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
 	lightInfo.lights[6].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
 	lightInfo.lights[6].constantAttenuation = 1.5;
@@ -136,7 +136,15 @@ void Model::setUpLights()
 	lightInfo.lights[6].quadraticAttenuation = 0.0;
 	lightInfo.lights[6].isEnabled = 1;
 	
-
+	//Carpet light
+	lightInfo.lights[7].color = vec4(1.0, 1.0, 1.0, 1.0);
+	lightInfo.lights[7].position = vec4(0, -10, 40, 1.0);  //positional light since w = 1
+	lightInfo.lights[7].spotLightValues = vec4(0.0, 0.0, 0.0, 0.0);
+	lightInfo.lights[7].spotConeDirection = vec4(0.25, -1.0, -0.25, 0.0);
+	lightInfo.lights[7].constantAttenuation = 1.0;
+	lightInfo.lights[7].linearAttenuation = 0.15;
+	lightInfo.lights[7].quadraticAttenuation = 0.0;
+	lightInfo.lights[7].isEnabled = 1;
 
 	//Pass the light info to the shaders in a Uniform Buffer Object.
 	//This allows ALL shaders to be able to access the light information.
@@ -424,21 +432,25 @@ void Model::draw()
 	//tree.draw();
 
 
-	model_matrix = translate(mat4(1.0), vec3(10.0f, 0.5f, 7.50f)); //Position the left bush
+	model_matrix = translate(mat4(1.0), vec3(10.0f, 0.0f, 7.50f)); //Position the left bush
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	model_matrix = scale(model_matrix, vec3(0.8f, 0.8f, 0.8f)); //Scale
 	updateMatrices();
 	bush.draw();
-	model_matrix = translate(mat4(1.0), vec3(10.0f, 0.5f, 7.50f)); //Position the left bush
+	model_matrix = translate(mat4(1.0), vec3(10.0f, 0.0f, 7.50f)); //Position the left bush
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	model_matrix = scale(model_matrix, vec3(0.8f, 0.8f, 0.8f)); //Scale
 	updateMatrices();
 	bush.draw();
 
-	model_matrix = translate(mat4(1.0), vec3(-30.0f, 0.5f, 7.50f)); //Position the right 3 bushes
+	model_matrix = translate(mat4(1.0), vec3(-30.0f, 0.0f, 7.50f)); //Position the right 3 bushes
 	model_matrix = rotate(model_matrix, degreesToRadians(45.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	model_matrix = scale(model_matrix, vec3(0.8f, 0.8f, 0.8f)); //Scale
 	updateMatrices();
 	bush.draw();
-	model_matrix = translate(mat4(1.0), vec3(-30.0f, 0.5f, 7.50f)); //Position the right 3 bushes
+	model_matrix = translate(mat4(1.0), vec3(-30.0f, 0.0f, 7.50f)); //Position the right 3 bushes
 	model_matrix = rotate(model_matrix, degreesToRadians(135.0f), vec3(0.0f, 1.0f, 0.0f)); //Position the bush
+	model_matrix = scale(model_matrix, vec3(0.8f, 0.8f, 0.8f)); //Scale
 	updateMatrices();
 	bush.draw();
 

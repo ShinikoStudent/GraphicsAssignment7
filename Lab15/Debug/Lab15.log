@@ -1,22 +1,20 @@
 ﻿  model.cpp
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.h(86): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(75): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(85): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(95): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(105): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(115): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(125): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(135): warning C4305: '=': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(200): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(204): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(206): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(236): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(240): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(242): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(274): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(353): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(353): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(364): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
-c:\users\neunis\documents\comp153\graphicsassignment7\lab15\model.cpp(364): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.exe
-  Lab15.vcxproj -> C:\Users\Neunis\Documents\Comp153\GraphicsAssignment7\Debug\Lab15.pdb (Partial PDB)
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.h(86): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(75): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(85): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(95): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(105): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(115): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(125): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(135): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(145): warning C4305: '=': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(208): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(212): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(214): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(244): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(248): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(250): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(282): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(361): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\shiniko\documents\college\college\comp 153 graphics\assignment7\graphicsassignment7\lab15\model.cpp(372): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+  Lab15.vcxproj -> C:\Users\Shiniko\Documents\College\COLLEGE\Comp 153 Graphics\Assignment7\GraphicsAssignment7\Debug\Lab15.exe

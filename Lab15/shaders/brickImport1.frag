@@ -28,7 +28,7 @@ struct LightProperties
 
 layout(binding = 0,std140) uniform Lights
 {
-	LightProperties lights[7];
+	LightProperties lights[8];
 	vec3 globalAmbientLight;
 	int totalLights; //Number of lights in this application
 };
