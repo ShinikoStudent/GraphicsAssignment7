@@ -105,6 +105,7 @@ public:
 	bool initGLEW();
 	bool init();  //initializes the model
 	void draw();  //renders the model
+	void decorate();
 	void drawBedroom1();
 };
 

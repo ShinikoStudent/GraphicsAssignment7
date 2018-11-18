@@ -466,19 +466,12 @@ void Model::draw()
 	updateMatrices();
 	door.draw();
 
-	//carpet
-	//model_matrix = translate(mat4(1.0), vec3(0.0, 3.0, 35.0)); //position the carpet
-	//carpet.draw();
-	//model_matrix = translate(mat4(1.0), vec3(1.0, 1.0, 35.0)); //position the aquarium
-	//cube.draw();
-
-
 	model_matrix = translate(mat4(1.0), vec3(0.0, -0.55, 37.5)); //position the mantel of fireplace
 	//model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(0.0f, 0.0f, 1.0f)); //Make sure we rotate so that the normal is up!
 	model_matrix = scale(model_matrix, vec3(0.9f, 0.9f, 0.9f));
 	updateMatrices();
 	fireplace.draw();
-
+	
 	drawPlants();
 
 	model_matrix = translate(mat4(1.0), vec3(35.0f, 3.5f, 1.0f)); //Position the light bulb 1
@@ -557,6 +550,8 @@ void Model::draw()
 	model_matrix = scale(model_matrix, vec3(0.7f, 0.7f, 0.7f)); //Scale
 	updateMatrices();
 	ceilingLight.draw();
+
+	decorate();
 
 	glUniform1i(numTexLoc, 2); //set this uniform variable for the objects that have two textures
 	model_matrix = translate(mat4(1.0), vec3(-5.0f, 0.5f, 5.0f)); //Position the window
@@ -740,34 +735,6 @@ void Model::draw()
 	updateMatrices();
 	brick.draw();
 
-	/*
-	model_matrix = translate(mat4(1.0), vec3(-1.0f, 0.0f, 39.0f)); //position the brick
-	//model_matrix = scale(model_matrix, vec3(3.0f, 5.0f, 1.0f)); //position the brick
-	updateMatrices();
-	brick.draw();
-
-	model_matrix = translate(mat4(1.0), vec3(-1.0f, 0.0f, 38.0f)); //position the brick
-	updateMatrices();
-	brick.draw();
-
-	model_matrix = translate(mat4(1.0), vec3(0.0f, 0.0f, 39.0f)); //position the brick
-	updateMatrices();
-	brick.draw();
-
-	model_matrix = translate(mat4(1.0), vec3(0.0f, 0.0f, 38.0f)); //position the brick
-	updateMatrices();
-	brick.draw();*/
-
-
-
-	//fireplace
-	/*
-	model_matrix = translate(mat4(1.0), vec3(0.0, -3.0, 39.0)); //position the base
-	model_matrix = rotate(model_matrix, degreesToRadians(-90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
-	model_matrix = scale(model_matrix, vec3(5.0f, 1.0f, 0.5f));
-	updateMatrices();
-	brick.draw();*/
-
 	//Render the objects that use their own shaders
 	glBindTexture(GL_TEXTURE_2D, brickNoiseTexID); //Need to make the noise texture active for the brick
 	model_matrix = translate(mat4(1.0), vec3(5.0f, 0.0f, 10.0f)); //position the brick
@@ -781,14 +748,13 @@ void Model::draw()
 	updateMatrices();
 	ground.draw();
 
-
-
 	model_matrix = translate(mat4(1.0), vec3(-4.0f, 1.5f, -4.0f));  //position the cube
 	model_matrix = rotate(model_matrix, degreesToRadians(cube_rot_angle), vec3(0.0f, 1.0f, 0.0f));
 	updateMatrices();
 	//cube.draw();
 
 	drawBedroom1();
+
 	/*
 	model_matrix = translate(mat4(1.0), vec3(0.0f, 4.0f, 2.0f)); //position the wall
 	model_matrix = rotate(model_matrix, degreesToRadians(180.0f), vec3(0.0f, 1.0f, 0.0f)); //Make sure we rotate so that the normal is facing the viewer!
@@ -816,6 +782,17 @@ void Model::setItemIndexToFalse(int num) {
 
 bool Model::getItemIndex(int num) {
 	return items[num];
+}
+
+void Model::decorate() {
+
+	glUniform1i(numTexLoc, 1); //set this uniform variable for the objects that have one textures
+	model_matrix = translate(mat4(1.0), vec3(0.0f, -3.0f, 25.0f)); //position the ground
+	model_matrix = rotate(model_matrix, degreesToRadians(90.0f), vec3(1.0f, 0.0f, 0.0f)); //Make sure we rotate so that the normal is up!
+	model_matrix = scale(model_matrix, vec3(1.0f, 1.0f, 1.0f));
+	updateMatrices();
+	carpet.draw();
+
 }
 
 void Model::drawPlants() {
@@ -1003,7 +980,6 @@ void Model::drawBedroom1() {
 	//}
 	//end of bedroom 1 code
 }
-
 
 void Model::toggleFilter()
 {
