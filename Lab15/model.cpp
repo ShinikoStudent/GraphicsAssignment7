@@ -301,7 +301,6 @@ bool Model::init()
 	door.init("images/door.bmp");
 	fireplace.init("images/warmth2.bmp");
 	carpet.init("images/carpet.bmp");
-	aqua.init("image/fishtank.bmp");
 	ceilingLight.init("images/ceilingLight.bmp");
 	aWindow.init("images/glacier.bmp", "images/frame.bmp", program);
 	p.init("images/star.bmp");

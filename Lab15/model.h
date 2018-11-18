@@ -47,7 +47,6 @@ protected:
 	TransparentTexModel door;
 	TransparentTexModel fireplace;
 	TransparentTexModel carpet;
-	TransparentTexModel aqua;
 	MultiTexModel aCarpet;
 	MultiTexModel aWindow;
 	MultiTexModel wallNorth;
